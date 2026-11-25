@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Flat Repairs Shopping</title>
+<style>
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e3ded3;
+  --accent:#7a5c2e; --accent-soft:#f1e7d6; --rec:#1d6b45; --rec-soft:#e2f1e8;
+  --budget:#3a5f8f; --durable:#5d4a8a; --aesthetic:#8a4a3a; --alt:#5f6670;
+  --warn:#9a5b00; --badge-ink:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181b; --card:#1f2226; --ink:#e8e6e1; --muted:#a2a7ad; --line:#33373d;
+    --accent:#d6b57f; --accent-soft:#2e2a22; --rec:#5cc391; --rec-soft:#1c2c24;
+    --budget:#8fb3e3; --durable:#b9a6e6; --aesthetic:#e3a493; --alt:#a2a7ad; --warn:#e0a040; --badge-ink:#16181b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181b; --card:#1f2226; --ink:#e8e6e1; --muted:#a2a7ad; --line:#33373d;
+  --accent:#d6b57f; --accent-soft:#2e2a22; --rec:#5cc391; --rec-soft:#1c2c24;
+  --budget:#8fb3e3; --durable:#b9a6e6; --aesthetic:#e3a493; --alt:#a2a7ad; --warn:#e0a040; --badge-ink:#16181b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+header h1{font:600 28px/1.2 Georgia,"Times New Roman",serif;margin:0 0 4px}
+header p{margin:4px 0;color:var(--muted)}
+.notes{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 8px}
+.pill{background:var(--accent-soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 24px}
+nav.toc a{text-decoration:none;font-size:13px;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 10px;color:var(--ink)}
+section.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:0 0 18px}
+.item h2{margin:0;font:600 20px/1.3 Georgia,serif}
+.room{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.need{margin:8px 0 4px}
+.measure{font-size:13px;color:var(--warn);margin:4px 0}
+.qty{font-size:13px;color:var(--muted)}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:14px}
+.opt{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;position:relative;background:var(--card)}
+.opt.rec{border:2px solid var(--rec);background:linear-gradient(var(--rec-soft),var(--card) 60%)}
+.imgbox{height:140px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;overflow:hidden}
+.imgbox img{max-width:100%;max-height:140px;object-fit:contain}
+.imgbox.none{background:var(--accent-soft);color:var(--muted);font-size:12px;text-align:center;padding:8px}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;border-radius:6px;padding:2px 8px;color:var(--badge-ink)}
+.t-Budget{background:var(--budget)} .t-Durable{background:var(--durable)} .t-Aesthetic{background:var(--aesthetic)} .t-Alt{background:var(--alt)}
+.badge.recb{background:var(--rec)}
+.opt h3{font-size:14px;margin:0;line-height:1.35}
+.price{font-size:17px;font-weight:700}
+.sup{font-size:12px;color:var(--muted)}
+.stock{font-size:12px;border-left:3px solid var(--line);padding-left:8px}
+.onotes{font-size:13px;color:var(--muted)}
+.opt a.go{margin-top:auto;font-size:13px;font-weight:600}
+.extras{margin-top:12px;font-size:13px}
+.extras ul{margin:6px 0 0;padding-left:18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;margin-bottom:18px}
+h2.sec{font:600 22px Georgia,serif;margin:28px 0 10px}
+.total{font-weight:700}
+.themebtn{float:right;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
+footer{color:var(--muted);font-size:12px;margin-top:30px}
+@media (max-width:520px){header h1{font-size:23px}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <button class="themebtn" id="themebtn" type="button">Light / dark</button>
+  <h1 id="title"></h1>
+  <p id="subtitle"></p>
+  <div class="notes" id="notes"></div>
+</header>
+<nav class="toc" id="toc"></nav>
+<h2 class="sec">Recommended picks</h2>
+<div class="tablewrap"><table id="recs"><thead><tr><th>#</th><th>Item</th><th>Pick</th><th>Supplier</th><th>Price</th><th>Get it</th></tr></thead><tbody></tbody></table></div>
+<div id="items"></div>
+<h2 class="sec">Where to collect</h2>
+<div class="tablewrap"><table id="stores"><thead><tr><th>Chain</th><th>Near</th><th>Branches</th><th>Basis</th></tr></thead><tbody></tbody></table></div>
+<h2 class="sec">Measurements still needed</h2>
+<div class="tablewrap"><table id="measure"><thead><tr><th>#</th><th>Item</th><th>Measure</th></tr></thead><tbody></tbody></table></div>
+<footer id="foot"></footer>
+</div>
+<script id="data" type="application/json">{
+  "meta": {
+    "title": "Flat repairs: shopping and planning list",
+    "subtitle": "Victorian conversion flat, south-east London. Remaining repairs, winter 2026.",
+    "updated": "2026-11-25",
+    "price_note": "Prices inc VAT, seen on retailer sites on 25 Nov 2026 (Black Friday week, so some are offer prices). Confirm at checkout.",
+    "stock_note": "Click & collect stock checked live on 25 Nov 2026 at the nearest stores to SE14 and SW9. Stock changes daily.",
+    "tiers": {
+      "Budget": "Lowest cost that does the job",
+      "Durable": "Best value for a rental: lasts, trade-grade",
+      "Aesthetic": "Best fit for a Victorian conversion",
+      "Alt": "Alternative or add-on"
+    }
+  },
+  "stores": [
+    {"chain": "Screwfix", "near": "SE14", "branches": "Bermondsey Surrey Canal Rd 1.3 mi; Greenwich 1.4 mi; Lewisham 1.4 mi; Bermondsey Rotherhithe New Rd 2.1 mi", "basis": "Screwfix stock checker"},
+    {"chain": "Screwfix", "near": "SW9", "branches": "Brixton 1.8 mi; Walworth Road 2.1 mi; Tulse Hill 2.2 mi; Lambeth 2.5 mi", "basis": "Screwfix stock checker"},
+    {"chain": "Toolstation", "near": "SE14", "branches": "Peckham, Old Kent Road SE15 1AJ (about 1.3 mi); Bermondsey, Rotherhithe New Rd SE16 3LL", "basis": "directory listings; distance estimated"},
+    {"chain": "Toolstation", "near": "SW9", "branches": "Brixton, Lyham Road SW2 5DZ (about 1.3 mi)", "basis": "directory listings; distance estimated"},
+    {"chain": "B&Q", "near": "SE14 / SW9", "branches": "Peckham, 524 Old Kent Road SE1 5BA (about 1.6 mi from SE14, 2.6 mi from SW9). Many diy.com lines are marketplace sellers: delivery only", "basis": "B&Q store page; distance estimated"},
+    {"chain": "Selco", "near": "SE14", "branches": "Old Kent Road (St James Rd, about 1.5 mi); Catford (Bromley Rd A21)", "basis": "Selco branch pages; distance estimated"},
+    {"chain": "Leyland SDM", "near": "SE14 / SW9", "branches": "Decorators' merchant: Dulwich, Tower Bridge Road, Streatham, Tooting. Good for Zinsser and anti-mould paint", "basis": "company pages"},
+    {"chain": "Independent", "near": "SE14", "branches": "Howarth Timber, 115 Endwell Rd, Brockley SE4 2PE (timber, mouldings, about 0.8 mi); SIDS Plumbing & Heating, 297-301 Brockley Rd SE4 2QZ", "basis": "directory listings; check hours"},
+    {"chain": "Amazon UK", "near": "delivery", "branches": "Second choice on every line: usually next-day delivery", "basis": ""}
+  ],
+  "items": [
+    {
+      "id": "1", "room": "Front bedroom", "title": "Failed double-glazed unit",
+      "need": "Replace the sealed unit in the existing uPVC frame. Demisting is not recommended: it leaves drill holes, does not restore the argon, and is unlikely to count as a repair.",
+      "measure": "Remove one bead and measure the unit's actual width, height and thickness (usually 24 or 28 mm). Use toughened glass if the bottom of the pane is less than 800 mm above the floor.",
+      "qty": "1 unit",
+      "options": [
+        {"tier": "Budget", "rec": false, "supplier": "Online (Gloucester Sealed Units)", "name": "Made-to-measure unit, Low-E, argon, warm edge (supply only)", "price": "about £69 (about £82 toughened)", "url": "https://www.gloucestersealedunits.co.uk/", "img": "", "stock": "3-5 working days (7-10 toughened); order by phone", "notes": "Budget benchmark. Price worked out from their per-m² rates for about 600x900 mm. Needs someone to fit it."},
+        {"tier": "Budget", "rec": false, "supplier": "Online (Click2Glaze)", "name": "Made-to-measure sealed unit (supply only)", "price": "about £70-85 for one", "url": "https://www.click2glaze.co.uk/", "img": "", "stock": "10-12 working days, free delivery", "notes": "Instant online price calculator. The cheapest headline price is a multi-unit discount."},
+        {"tier": "Durable", "rec": true, "supplier": "Local glazier (supply and fit)", "name": "Pearson Glazing (Peckham) or Monsta Windows (Charlton): unit replacement in an existing frame", "price": "typically £70-180 fitted", "url": "", "img": "", "stock": "Usually measure, then fit 1-2 weeks later. Send photos and sizes first to get a firm quote.", "notes": "Pearson: Checkatrade 10.00 from 167 reviews. Monsta: Which? 5.0 from 19. Comes with a guarantee and the glazier carries the risk. Other options: Red Ant (Lewisham and Brixton). Replacing only the glass is not notifiable and needs no FENSA certificate."},
+        {"tier": "Alt", "rec": false, "supplier": "B&Q (Sealed Units Online)", "name": "Sealed unit 700x900 ±100 mm, 26 mm, toughened", "price": "£89.77", "url": "https://www.diy.com/search?term=sealed+unit", "img": "", "stock": "Delivery", "notes": "Aluminium spacer (not warm edge). U-value 1.2."}
+      ]
+    },
+    {
+      "id": "2", "room": "Bedrooms and living room", "title": "Humidity indicators (for the tenants)",
+      "need": "Battery digital thermo-hygrometers, so the tenants can see humidity and ventilate.",
+      "measure": "", "qty": "3",
+      "options": [
+        {"tier": "Budget", "rec": true, "supplier": "Amazon", "name": "ThermoPro TP49 digital hygrometer, 3-pack", "price": "£11.98", "url": "https://www.amazon.co.uk/dp/B08V1KXBQD", "img": "https://m.media-amazon.com/images/I/41ECXkcvNtL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.6★. Small and discreet, with a comfort indicator."},
+        {"tier": "Durable", "rec": false, "supplier": "Amazon", "name": "Govee Bluetooth thermo-hygrometer with app", "price": "£9.48 each", "url": "https://www.amazon.co.uk/dp/B086YYL439", "img": "https://m.media-amazon.com/images/I/41SjS8wNHmL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.5★. Logs history to a phone app, which helps if there is a damp dispute."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Forge steel thermometer and hygrometer (analogue dial)", "price": "£17.99", "url": "https://www.screwfix.com/search?search=943YC", "img": "https://media.screwfix.com/is/image/ae235/943YC_P", "stock": "Check", "notes": "A dial looks more traditional but is less accurate."}
+      ]
+    },
+    {
+      "id": "3", "room": "Front bedroom", "title": "Anti-mould paint (touch-up)",
+      "need": "Touch-up on accessible corners only, not a redecoration. Clean with mould wash first.",
+      "measure": "", "qty": "1 tin",
+      "options": [
+        {"tier": "Budget", "rec": true, "supplier": "Screwfix", "name": "Ronseal Anti Mould Wall Paint, white matt, 750 ml", "price": "£25.49", "url": "https://www.screwfix.com/search?search=64218", "img": "https://media.screwfix.com/is/image/ae235/64218_P", "stock": "Check", "notes": "Right size for touch-ups."},
+        {"tier": "Durable", "rec": false, "supplier": "Screwfix / Leyland SDM", "name": "Zinsser Perma-White anti-mould, white matt, 2.5 L", "price": "£40.99", "url": "https://www.screwfix.com/search?search=3939G", "img": "https://media.screwfix.com/is/image/ae235/3939G_P", "stock": "Collect today: Lewisham (8), Surrey Canal Rd (9), Greenwich (5); Brixton (9), Walworth (7)", "notes": "Trade favourite with a 6-year mould guarantee. Worth it if more areas need doing later."},
+        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Zinsser Perma-White 1 L, white satin", "price": "£22.49", "url": "https://www.screwfix.com/search?search=13040", "img": "https://media.screwfix.com/is/image/ae235/13040_P", "stock": "Check", "notes": "Satin finish: better on woodwork and in the bathroom."}
+      ]
+    },
+    {
+      "id": "4", "room": "Living area", "title": "Water meter box / cover (indoor, visible)",
+      "need": "Ready-made cover over the insulated pipes and meter. It must lift off or have a hatch so the meter can be read.",
+      "measure": "Width, height and depth around the pipes and meter, from the photos and on site.", "qty": "1",
+      "options": [
+        {"tier": "Budget", "rec": false, "supplier": "Amazon", "name": "HAN-BB1 white pipework box cover, 500 x 400 x 75 mm", "price": "£37.00", "url": "https://www.amazon.co.uk/dp/B0D4R6XVP6", "img": "https://m.media-amazon.com/images/I/51c-FKspjgL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.5★. A neat ready-made box, provided the pipes fit inside 75 mm."},
+        {"tier": "Durable", "rec": true, "supplier": "Amazon", "name": "L-shaped paintable PVC pipe boxing kit", "price": "£55.85", "url": "https://www.amazon.co.uk/dp/B0GD7TN9KK", "img": "https://m.media-amazon.com/images/I/519ajo2qROL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Can be cut to suit a run of pipe and painted to match the wall."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "Howarth Timber (Brockley)", "name": "Timber or MDF boxing with a lift-off front and Victorian moulding", "price": "about £30-50 materials (estimate)", "url": "", "img": "", "stock": "Local merchant", "notes": "Best match for a period room, but has to be made rather than bought."}
+      ]
+    },
+    {
+      "id": "5", "room": "Internal stairs", "title": "Handrail (round rail on brass brackets)",
+      "need": "Round hardwood or oak rail on stand-off brackets (50-60 mm gap), 900-1000 mm above the nosings, in brass or antique brass to match other fittings.",
+      "measure": "Rail length: nosing of the first step to the last, plus about 150 mm at each end. Brackets at most about 1 m apart, and into solid fixings.", "qty": "1 rail + brackets (length TBC)",
+      "options": [
+        {"tier": "Aesthetic", "rec": true, "supplier": "B&Q (Jackson Woodturners)", "name": "Dark hardwood mopstick kit with brass end caps and brass wall brackets", "price": "£79.99 (1.8 m); £96.99 (2.4 m); longer sizes cost more", "url": "https://www.diy.com/search?term=5061053463889", "img": "https://media.diy.com/is/image/KingfisherDigital/jackson-woodturners-dark-hardwood-mopstick-with-brass-medium-end-caps-brass-wall-brackets-1800mm~5061053463889_01c_MP", "stock": "Delivery (marketplace)", "notes": "A complete Victorian look in one kit. Choose the length after measuring."},
+        {"tier": "Durable", "rec": false, "supplier": "Screwfix + Screwfix brackets", "name": "Richard Burbidge white oak round handrail kit 3.6 m, with brass brackets swapped in (Essentials polished brass 65 mm, £3.79 each)", "price": "£139.99 + about £15 brackets", "url": "https://www.screwfix.com/search?search=71777", "img": "https://media.screwfix.com/is/image/ae235/71777_P", "stock": "Kit: collect tomorrow at all nearby stores. Brass bracket 31299: collect today (Rotherhithe 6, Lewisham 2, Greenwich 2)", "notes": "Unfinished oak: oil or lacquer it. The kit comes with chrome caps; use brass brackets instead."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "B&Q (Cheshire Mouldings)", "name": "Natural white oak mopstick handrail, 54 mm, 3.6 m (2.4 m £124)", "price": "£168", "url": "https://www.diy.com/search?term=5055170310478", "img": "https://media.diy.com/is/image/Kingfisher/cheshire-mouldings-natural-white-oak-mopstick-handrail-l-3-6m-d-54mm-h-51mm~5055170310478_01c_bq", "stock": "Delivery", "notes": "A traditional mopstick profile (flat back). Brackets are extra."},
+        {"tier": "Budget", "rec": false, "supplier": "Selco", "name": "Softwood mopstick handrail 50 x 50 mm + Selco brass brackets 63 mm (5-pack £18.65)", "price": "£6.29 per length + £18.65", "url": "https://www.selcobw.com/catalogsearch/results/shop-by/?q=mopstick", "img": "", "stock": "Old Kent Road branch: check", "notes": "Cheapest, but softwood: stain it dark or paint it. Not hardwood."}
+      ],
+      "extras": [
+        {"supplier": "B&Q", "name": "Rothley antique brass handrail wall bracket, 40 mm", "price": "£16 each", "url": "https://www.diy.com/search?term=5013144060347", "img": "https://media.diy.com/is/image/KingfisherDigital/rothley-antique-brass-bannister-staircase-handrail-wall-bracket-diam-40mm~5013144060347_01c_MP"},
+        {"supplier": "B&Q", "name": "AFIT satin brass handrail bracket 63 mm, 4-pack", "price": "£16.90", "url": "https://www.diy.com/search?term=5063498143517", "img": "https://media.diy.com/is/image/KingfisherDigital/afit-handrail-bracket-satin-brass-pack-4-banister-brackets-stair-banister-wall-handrail-63mm~5063498143517_01c_MP"},
+        {"supplier": "Screwfix", "name": "Essentials handrail bracket, polished brass 65 mm", "price": "£3.79 each", "url": "https://www.screwfix.com/search?search=31299", "img": "https://media.screwfix.com/is/image/ae235/31299_P"}
+      ]
+    },
+    {
+      "id": "6", "room": "Back bedroom", "title": "Sash window: seals",
+      "need": "Screw-fixed seal on the bottom of the sash (self-adhesive ones haven't lasted), possibly doubled; brush-pile seals in the staff beads. Sealant and paint for the touch-up are already in hand.",
+      "measure": "Sash width (bottom seal); runner lengths (staff beads).", "qty": "1 bottom seal + 2 runners",
+      "options": [
+        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Stormguard heavy duty brush seal, aluminium, 0.91 m (screw-fixed)", "price": "£5.59", "url": "https://www.screwfix.com/search?search=14354", "img": "https://media.screwfix.com/is/image/ae235/14354_P", "stock": "Collect today: Lewisham (2), Rotherhithe (1); Brixton (8), Walworth (15)", "notes": "Screw-fixed to the bottom rail. Buy 2 to make a double seal."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Stormguard heavy duty brush seal, gold anodised, 0.91 m", "price": "£5.79", "url": "https://www.screwfix.com/search?search=11750", "img": "https://media.screwfix.com/is/image/ae235/11750_P", "stock": "Check", "notes": "Brass look, to suit period ironmongery."},
+        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Stormguard self-adhesive brush pile weatherstrip, white, 5 m", "price": "£12.59", "url": "https://www.screwfix.com/search?search=30322", "img": "https://media.screwfix.com/is/image/ae235/30322_P", "stock": "Check", "notes": "For the staff-bead runners. Tack with small pins as well, because adhesive alone fails."},
+        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Schlegel AQ21 window and door seal, white, 6 m", "price": "£11.97", "url": "https://www.screwfix.com/search?search=7963P", "img": "https://media.screwfix.com/is/image/ae235/7963P_P", "stock": "Check", "notes": "A Q-lon foam seal; fits in a routed groove."}
+      ]
+    },
+    {
+      "id": "7", "room": "Bathroom", "title": "Humidity-controlled extractor fan",
+      "need": "Replace the old timer fan with a humidistat fan. A timer fan needs a permanent live to run on, so the permanent and switched lives are very likely already there: a humidistat fan should be a like-for-like swap. Check the zone: over the bath or shower (zone 1) needs a 12 V SELV fan or a mains fan rated for zone 1, with 30 mA RCD protection.",
+      "measure": "Wall hole diameter and the space around the grille. Fans with a larger front plate cover an oversized hole.", "qty": "1 (electrician to fit)",
+      "options": [
+        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Manrose XF100H 100 mm humidistat fan", "price": "£40.00", "url": "https://www.screwfix.com/search?search=15722", "img": "https://media.screwfix.com/is/image/ae235/15722_P", "stock": "Collect today: Surrey Canal Rd (2), Rotherhithe (2), Greenwich (1)", "notes": "Basic and reliable. Small front plate."},
+        {"tier": "Budget", "rec": false, "supplier": "Toolstation", "name": "Airvent 100 mm low profile humidistat fan", "price": "£36.89", "url": "https://www.toolstation.com/p46262", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/46262.jpg", "stock": "Check", "notes": "Cheapest."},
+        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Manrose Quiet Fan X5 QF100HTX5OP, humidistat and timer", "price": "£79.99", "url": "https://www.screwfix.com/search?search=340JL", "img": "https://media.screwfix.com/is/image/ae235/340JL_P", "stock": "Collect tomorrow at all nearby stores", "notes": "Quiet (tenants actually leave it on), with a larger front plate to hide an untidy hole."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Vent-Axia Lo-Carbon Silhouette 100 mm", "price": "£119.99", "url": "https://www.screwfix.com/search?search=41748", "img": "https://media.screwfix.com/is/image/ae235/41748_P", "stock": "Check", "notes": "Slim, flat, minimal front; low running cost."},
+        {"tier": "Alt", "rec": false, "supplier": "Toolstation", "name": "Xpelair Simply Silent 100 mm LOW VOLTAGE (SELV) humidistat fan", "price": "£91.29", "url": "https://www.toolstation.com/p31086", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/31086.jpg", "stock": "Check", "notes": "Use this if the fan is in zone 1. Comes with a transformer, which goes outside the zones."}
+      ]
+    },
+    {
+      "id": "8", "room": "Bathroom", "title": "Threshold over the raised tile edge",
+      "need": "Protect the raised edge of the new tiles at the doorway. Fallback: a hardwood strip fixed with Gripfill.",
+      "measure": "Doorway width and step height (tile surface to the floor beyond).", "qty": "1",
+      "options": [
+        {"tier": "Aesthetic", "rec": true, "supplier": "BC Ceramics (Schlüter)", "name": "Schlüter RENO-MU transition ramp, brass, 2.5 m", "price": "£42.60", "url": "https://www.bcceramics.co.uk/products/schluter-reno-mu-flooring-transition-ramp-brass-2-5m", "img": "", "stock": "Delivery; Topps Tiles stores may stock Schlüter RENO-U (ask)", "notes": "A proper ramp made for a tile-to-floor height change. Brass patinates naturally."},
+        {"tier": "Budget", "rec": false, "supplier": "B&Q", "name": "GoodHome DECOR35 matt gold effect threshold, 93 cm x 37 mm", "price": "£9", "url": "https://www.diy.com/search?term=3663602529217", "img": "https://media.diy.com/is/image/Kingfisher/goodhome-decor35-matt-gold-effect-threshold-l-93cm-w-37mm~3663602529217_01c_bq", "stock": "Check at Old Kent Road", "notes": "Flat cover strip. Only suits a small height difference."},
+        {"tier": "Alt", "rec": false, "supplier": "Howarth Timber / any", "name": "Hardwood (oak) threshold strip, chamfered, fixed with Gripfill", "price": "about £8-15", "url": "", "img": "", "stock": "Local", "notes": "Your fallback. Seal the end grain."}
+      ]
+    },
+    {
+      "id": "9", "room": "Deck and outside steps", "title": "Grip: strips, nosings, cleaner",
+      "need": "Keep using decking OIL, not stain (stain and anti-slip coatings form a film and flake). Get grip from screw-fixed GRP strips and nosings. Clean off algae before re-oiling.",
+      "measure": "Number of treads and their width; deck walking lines.", "qty": "TBC",
+      "options": [
+        {"tier": "Budget", "rec": true, "supplier": "B&Q (marketplace: Slips Away)", "name": "Beige GRP anti-slip decking strips, 1000 x 50 mm, 8-pack, pre-drilled, screws included", "price": "£45.26 (£5.66/m)", "url": "https://www.diy.com/departments/beige-grp-anti-slip-decking-strips-heavy-duty-pre-drilled-free-screws-1000mmx50mm-pack-of-8/3241855100409_BQ.prd", "img": "https://media.diy.com/is/image/KingfisherDigital/beige-grp-anti-slip-decking-strips-heavy-duty-pre-drilled-free-screws-1000mmx50mm-pack-of-8~3241855100409_01c_MP", "stock": "Delivery only, free", "notes": "Best value. Beige blends in with oiled timber."},
+        {"tier": "Durable", "rec": false, "supplier": "Toolstation", "name": "Anti-slip GRP decking strip, black, 50 mm x 1 m (90 mm wide £19.99)", "price": "£11.49 each", "url": "https://www.toolstation.com/p63827", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/63827.jpg", "stock": "Check at Peckham / Brixton", "notes": "Black, to match the black nosings and the house."},
+        {"tier": "Aesthetic", "rec": true, "supplier": "Toolstation", "name": "Anti-slip stair nosing 55 x 55 mm x 1 m, black (for the steps)", "price": "£22.49", "url": "https://www.toolstation.com/p45992", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/45992.jpg", "stock": "Check", "notes": "Screwfix COBAGRiP black nosing (£22.99) is NOT available for click & collect nearby: delivery only."},
+        {"tier": "Alt", "rec": false, "supplier": "Amazon", "name": "Osmo Anti-Slip Decking Oil 430, clear, 2.5 L", "price": "£87.21", "url": "https://www.amazon.co.uk/dp/B0791DXX74", "img": "https://m.media-amazon.com/images/I/81LMBKUiVaL._AC_SL400_.jpg", "stock": "Delivery", "notes": "A true oil with fine grit, so it recoats like normal oil. Use on treads where strips don't suit."},
+        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Ronseal decking cleaner, 5 L", "price": "£13.49", "url": "https://www.screwfix.com/search?search=47649", "img": "https://media.screwfix.com/is/image/ae235/47649_P", "stock": "Check", "notes": "Use before oiling, to remove algae and green slime."}
+      ]
+    },
+    {
+      "id": "10", "room": "Deck", "title": "Joists, post bottoms, cut ends",
+      "need": "Plates and brackets on loosening joists (bigger repairs in summer). Protect post bottoms: leave a drainage gap where boards meet posts, fit post caps, avoid shrouds that trap water. Treat every cut end of tanalised timber.",
+      "measure": "Post size (75 or 100 mm); number of joists to plate.", "qty": "TBC",
+      "options": [
+        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Sabrefix hand nail plates, galvanised, 150 x 75 mm, 25-pack", "price": "£15.24", "url": "https://www.screwfix.com/search?search=69215", "img": "https://media.screwfix.com/is/image/ae235/69215_P", "stock": "Collect today at most nearby stores (1-2 each)", "notes": "Screw them on with short structural screws, not nails, on a deck that flexes."},
+        {"tier": "Durable", "rec": false, "supplier": "Screwfix", "name": "Sabrefix heavy duty angle brackets, galvanised, 63 x 150 mm, 10-pack", "price": "£27.58", "url": "https://www.screwfix.com/search?search=20012", "img": "https://media.screwfix.com/is/image/ae235/20012_P", "stock": "Check", "notes": "Joist-to-bearer or joist-to-post reinforcement."},
+        {"tier": "Aesthetic", "rec": true, "supplier": "Amazon", "name": "IRONTITE metal post caps 75 mm, black, 5-pack", "price": "£14.45", "url": "https://www.amazon.co.uk/dp/B0D2LLK46W", "img": "https://m.media-amazon.com/images/I/71FSIj1rZkL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.7★. Black suits the house. A galvanised version is also £14.45."},
+        {"tier": "Alt", "rec": false, "supplier": "Amazon", "name": "UFURMATE post base cover, black, 100 x 100 mm inside, 4-pack", "price": "£13.75", "url": "https://www.amazon.co.uk/dp/B0CHRVPYC2", "img": "https://m.media-amazon.com/images/I/41tMpkUJAlL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Tidies the gap at the post base. Do not seal it down: set it on small packers so the drainage gap stays open. Fits 100 mm posts only."},
+        {"tier": "Budget", "rec": true, "supplier": "Amazon", "name": "Rustins Advanced End Grain Wood Protector, 500 ml", "price": "£9.89", "url": "https://www.amazon.co.uk/dp/B075MYHBXX", "img": "https://m.media-amazon.com/images/I/71J-qAmYICL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Green tint shows what you've treated. Enough for all the cut ends."}
+      ]
+    },
+    {
+      "id": "11", "room": "Outside steps", "title": "Handrail by the house wall",
+      "need": "A continuous black metal rail fixed to the wall (preferred: quick and safest). Check that the product is sold as a load-bearing handrail, not a decorative rail.",
+      "measure": "Rail length, number of steps, distance from the wall.", "qty": "1",
+      "options": [
+        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Rothley steel handrail kit, matt black, 1.2 m (3.6 m £67, delivery only)", "price": "£37.00", "url": "https://www.screwfix.com/search?search=317EA", "img": "https://media.screwfix.com/is/image/ae235/317EA_P", "stock": "1.2 m: collect tomorrow at all nearby stores (SE14 and SW9). 3.6 m (814KN): not available for collection, delivery only", "notes": "A complete kit. Use stainless or galvanised screws and touch up the cut ends outdoors."},
+        {"tier": "Budget", "rec": false, "supplier": "Amazon", "name": "Wall-mount handrail for 1-3 outdoor steps, black", "price": "£28.99", "url": "https://www.amazon.co.uk/dp/B0FDQMG27S", "img": "https://m.media-amazon.com/images/I/71Fs12PVN5L._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.8★. U-shaped grab rail: fine for a short flight."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "Amazon", "name": "Wrought-iron style outdoor stair rail, 1-2 steps, wall-mounted", "price": "£60.66", "url": "https://www.amazon.co.uk/dp/B0DF7RF1CC", "img": "https://m.media-amazon.com/images/I/71hj7pPlCRL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Has the period railing look. Check it is long enough for the flight."}
+      ]
+    },
+    {
+      "id": "12", "room": "Balcony", "title": "Balustrade backstops (removable for painting)",
+      "need": "Paintable backstop brackets fixed to the posts behind the balustrades (not screwed to them), so the panels can't fall through but can still come off for painting. Metal brackets inside the balustrade as a back-up.",
+      "measure": "Number of posts; balustrade thickness.", "qty": "TBC",
+      "options": [
+        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Rothley galvanised steel angle 36 x 36 mm, 1 m (cut to length)", "price": "£6.29", "url": "https://www.screwfix.com/search?search=880JP", "img": "https://media.screwfix.com/is/image/ae235/880JP_P", "stock": "Check", "notes": "Strongest. Etch-prime, then paint to match."},
+        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Rothley anodised aluminium angle 41 x 23 mm, 1 m", "price": "£9.99", "url": "https://www.screwfix.com/search?search=476JP", "img": "https://media.screwfix.com/is/image/ae235/476JP_P", "stock": "Check", "notes": "Neat and light. Needs an etch primer before painting."},
+        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Sabrefix heavy duty angle brackets, galvanised, 63 x 90 mm, 10-pack", "price": "£21.49", "url": "https://www.screwfix.com/search?search=86180", "img": "https://media.screwfix.com/is/image/ae235/86180_P", "stock": "Check", "notes": "Back-up brackets inside the balustrade."}
+      ]
+    },
+    {
+      "id": "13", "room": "Roof", "title": "Gutter check (optional)",
+      "need": "Look from the attic window, or use a phone on a pole. Dated photos are enough evidence. No purchase needed unless the view is blocked.",
+      "measure": "", "qty": "-", "options": []
+    },
+    {
+      "id": "14", "room": "Whole flat", "title": "Independent damp survey (optional)",
+      "need": "Use an independent surveyor (not one who sells treatments), ideally PCA (CSRT) qualified, who provides a written report. Not yet researched: next step.",
+      "measure": "", "qty": "-", "options": []
+    }
+  ]
+}
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  document.getElementById('themebtn').onclick=function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',nx);
+    try{localStorage.setItem('theme',nx);}catch(e){}
+  };
+  var D=JSON.parse(document.getElementById('data').textContent);
+  function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.textContent=h; return e;}
+  document.getElementById('title').textContent=D.meta.title;
+  document.getElementById('subtitle').textContent=D.meta.subtitle;
+  var n=document.getElementById('notes');
+  [D.meta.price_note,D.meta.stock_note,'Updated '+D.meta.updated].forEach(function(t){n.appendChild(el('span','pill',t));});
+  var toc=document.getElementById('toc'), items=document.getElementById('items');
+  var rb=document.querySelector('#recs tbody'), mb=document.querySelector('#measure tbody');
+  D.items.forEach(function(it){
+    var a=el('a',null,it.id+'. '+it.title); a.href='#i'+it.id; toc.appendChild(a);
+    var s=el('section','item'); s.id='i'+it.id;
+    s.appendChild(el('div','room',it.room));
+    s.appendChild(el('h2',null,it.id+'. '+it.title));
+    s.appendChild(el('p','need',it.need));
+    if(it.measure){ s.appendChild(el('p','measure','Measure: '+it.measure));
+      var tr=document.createElement('tr'); [it.id,it.title,it.measure].forEach(function(v){tr.appendChild(el('td',null,v));}); mb.appendChild(tr);}
+    if(it.qty && it.qty!=='-') s.appendChild(el('div','qty','Quantity: '+it.qty));
+    if(it.options && it.options.length){
+      var g=el('div','opts');
+      it.options.forEach(function(o){
+        var c=el('div','opt'+(o.rec?' rec':''));
+        var ib=el('div','imgbox'+(o.img?'':' none'));
+        if(o.img){var im=document.createElement('img'); im.loading='lazy'; im.alt=o.name; im.referrerPolicy='no-referrer'; im.src=o.img;
+          im.onerror=function(){ib.className='imgbox none'; ib.textContent='Image unavailable: see the retailer link';}; ib.appendChild(im);}
+        else ib.textContent=o.supplier;
+        c.appendChild(ib);
+        var b=el('div','badges'); b.appendChild(el('span','badge t-'+o.tier,o.tier)); if(o.rec) b.appendChild(el('span','badge recb','Recommended')); c.appendChild(b);
+        c.appendChild(el('h3',null,o.name));
+        c.appendChild(el('div','price',o.price));
+        c.appendChild(el('div','sup',o.supplier));
+        if(o.stock) c.appendChild(el('div','stock',o.stock));
+        if(o.notes) c.appendChild(el('div','onotes',o.notes));
+        if(o.url){var l=el('a','go','View at '+o.supplier.split(' (')[0]+' →'); l.href=o.url; l.target='_blank'; l.rel='noopener noreferrer'; c.appendChild(l);}
+        g.appendChild(c);
+        if(o.rec){var r=document.createElement('tr');
+          r.appendChild(el('td',null,it.id)); r.appendChild(el('td',null,it.title)); r.appendChild(el('td',null,o.name));
+          r.appendChild(el('td',null,o.supplier)); r.appendChild(el('td',null,o.price));
+          var td=el('td'); if(o.url){var ln=el('a',null,'Link'); ln.href=o.url; ln.target='_blank'; ln.rel='noopener noreferrer'; td.appendChild(ln);} r.appendChild(td); rb.appendChild(r);}
+      });
+      s.appendChild(g);
+    }
+    if(it.extras && it.extras.length){
+      var ex=el('div','extras'); ex.appendChild(el('strong',null,'Bracket choices (brass):'));
+      var ul=el('ul'); it.extras.forEach(function(x){var li=el('li'); var la=el('a',null,x.name); la.href=x.url; la.target='_blank'; la.rel='noopener noreferrer'; li.appendChild(la); li.appendChild(document.createTextNode(' — '+x.supplier+', '+x.price)); ul.appendChild(li);});
+      ex.appendChild(ul); s.appendChild(ex);
+    }
+    items.appendChild(s);
+  });
+  var sb=document.querySelector('#stores tbody');
+  D.stores.forEach(function(x){var tr=document.createElement('tr'); [x.chain,x.near,x.branches,x.basis].forEach(function(v){tr.appendChild(el('td',null,v));}); sb.appendChild(tr);});
+  document.getElementById('foot').textContent='Research list only: nothing has been ordered. Prices and stock change; check before buying. Product images are linked from the retailers\' sites.';
+})();
+</script>
+</body>
+</html>
