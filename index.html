@@ -79,6 +79,9 @@ footer{color:var(--muted);font-size:12px;margin-top:30px}
   <div class="notes" id="notes"></div>
 </header>
 <nav class="toc" id="toc"></nav>
+<div id="planwrap" hidden><h2 class="sec" id="plantitle"></h2>
+<div class="tablewrap"><table id="plan"><thead><tr><th>Priority</th><th>Task</th><th>Pick</th><th>Price</th><th>Item</th></tr></thead><tbody></tbody></table></div>
+<p class="qty" id="plannote"></p></div>
 <h2 class="sec">Recommended picks</h2>
 <div class="tablewrap"><table id="recs"><thead><tr><th>#</th><th>Item</th><th>Pick</th><th>Supplier</th><th>Price</th><th>Get it</th></tr></thead><tbody></tbody></table></div>
 <div id="items"></div>
@@ -92,7 +95,7 @@ footer{color:var(--muted);font-size:12px;margin-top:30px}
   "meta": {
     "title": "Flat repairs: shopping and planning list",
     "subtitle": "Victorian conversion flat, south-east London. Remaining repairs, winter 2026.",
-    "updated": "2026-11-25",
+    "updated": "2026-11-28",
     "price_note": "Prices inc VAT, seen on retailer sites on 25 Nov 2026 (Black Friday week, so some are offer prices). Confirm at checkout.",
     "stock_note": "Click & collect stock checked live on 25 Nov 2026 at the nearest stores to SE14 and SW9. Stock changes daily.",
     "tiers": {
@@ -100,227 +103,1109 @@ footer{color:var(--muted);font-size:12px;margin-top:30px}
       "Durable": "Best value for a rental: lasts, trade-grade",
       "Aesthetic": "Best fit for a Victorian conversion",
       "Alt": "Alternative or add-on"
+    },
+    "plan": {
+      "title": "Tuesday 1 Dec: work plan in priority order",
+      "note": "Items not listed (mould paint, meter box, timber balustrade build, crawl-space lights, gutter, damp survey, secondary kit) are for later.",
+      "rows": [
+        {
+          "p": 1,
+          "id": "1",
+          "task": "Double glazing",
+          "pick": "Failed unit, left side light, bottom sash, front bay. Confirm the lead time and size with the glazier first: if the unit isn't ready, use Tuesday to measure (bead off) and order.",
+          "price": "Local glazier, about £70-180 fitted"
+        },
+        {
+          "p": 2,
+          "id": "7",
+          "task": "Bathroom fan",
+          "pick": "Manrose QF100HTX5 with humidistat and timer (Screwfix)",
+          "price": "£79.99"
+        },
+        {
+          "p": 3,
+          "id": "5",
+          "task": "Indoor banister and brackets",
+          "pick": "Mopstick rail kit (B&Q) plus Lockworks polished brass brackets AG120 x 4-5 (Toolstation)",
+          "price": "Rail from £79.99; brackets £3.40 each"
+        },
+        {
+          "p": 4,
+          "id": "11",
+          "task": "Outdoor banister",
+          "pick": "Rothley matt black steel handrail kit (Screwfix)",
+          "price": "£37.00 (1.2 m)"
+        },
+        {
+          "p": 5,
+          "id": "12",
+          "task": "Outdoor rail reinforcement",
+          "pick": "Rothley galvanised angle backstops, cut to length (Screwfix)",
+          "price": "£6.29 per metre"
+        },
+        {
+          "p": 6,
+          "id": "6",
+          "task": "Sash window seals",
+          "pick": "Stormguard heavy duty brush seal (Screwfix)",
+          "price": "£5.59 per 0.91 m"
+        },
+        {
+          "p": 7,
+          "id": "8",
+          "task": "Bathroom threshold",
+          "pick": "Schlüter RENO-MU brass ramp (BC Ceramics)",
+          "price": "£42.60"
+        },
+        {
+          "p": 8,
+          "id": "9",
+          "task": "Deck grips (partial coverage)",
+          "pick": "16-20 beige GRP strips, 1000 x 50 mm: every step plus about 10 boards on the walking routes (Slips Away)",
+          "price": "About £78 for 16; £94.80 for 20"
+        },
+        {
+          "p": 9,
+          "id": "10",
+          "task": "Joist brackets",
+          "pick": "Sabrefix nail plates or heavy duty angle brackets (Screwfix); swap in your preferred bracket once you send the link",
+          "price": "£15.24 (25 plates) / £27.58 (10 brackets)"
+        },
+        {
+          "p": 10,
+          "id": "2",
+          "task": "Humidity indicators",
+          "pick": "ThermoPro TP49, 3-pack (Amazon)",
+          "price": "£11.98"
+        },
+        {
+          "p": 11,
+          "id": "10",
+          "task": "Post base covers",
+          "pick": "UFURMATE black post base cover, 100 x 100 mm inside, 4-pack (Amazon); fits the 100 x 100 posts",
+          "price": "£13.75 per 4"
+        }
+      ]
     }
   },
   "stores": [
-    {"chain": "Screwfix", "near": "SE14", "branches": "Bermondsey Surrey Canal Rd 1.3 mi; Greenwich 1.4 mi; Lewisham 1.4 mi; Bermondsey Rotherhithe New Rd 2.1 mi", "basis": "Screwfix stock checker"},
-    {"chain": "Screwfix", "near": "SW9", "branches": "Brixton 1.8 mi; Walworth Road 2.1 mi; Tulse Hill 2.2 mi; Lambeth 2.5 mi", "basis": "Screwfix stock checker"},
-    {"chain": "Toolstation", "near": "SE14", "branches": "Peckham, Old Kent Road SE15 1AJ (about 1.3 mi); Bermondsey, Rotherhithe New Rd SE16 3LL", "basis": "directory listings; distance estimated"},
-    {"chain": "Toolstation", "near": "SW9", "branches": "Brixton, Lyham Road SW2 5DZ (about 1.3 mi)", "basis": "directory listings; distance estimated"},
-    {"chain": "B&Q", "near": "SE14 / SW9", "branches": "Peckham, 524 Old Kent Road SE1 5BA (about 1.6 mi from SE14, 2.6 mi from SW9). Many diy.com lines are marketplace sellers: delivery only", "basis": "B&Q store page; distance estimated"},
-    {"chain": "Selco", "near": "SE14", "branches": "Old Kent Road (St James Rd, about 1.5 mi); Catford (Bromley Rd A21)", "basis": "Selco branch pages; distance estimated"},
-    {"chain": "Leyland SDM", "near": "SE14 / SW9", "branches": "Decorators' merchant: Dulwich, Tower Bridge Road, Streatham, Tooting. Good for Zinsser and anti-mould paint", "basis": "company pages"},
-    {"chain": "Independent", "near": "SE14", "branches": "Howarth Timber, 115 Endwell Rd, Brockley SE4 2PE (timber, mouldings, about 0.8 mi); SIDS Plumbing & Heating, 297-301 Brockley Rd SE4 2QZ", "basis": "directory listings; check hours"},
-    {"chain": "Amazon UK", "near": "delivery", "branches": "Second choice on every line: usually next-day delivery", "basis": ""}
+    {
+      "chain": "Screwfix",
+      "near": "SE14",
+      "branches": "Bermondsey Surrey Canal Rd 1.3 mi; Greenwich 1.4 mi; Lewisham 1.4 mi; Bermondsey Rotherhithe New Rd 2.1 mi",
+      "basis": "Screwfix stock checker"
+    },
+    {
+      "chain": "Screwfix",
+      "near": "SW9",
+      "branches": "Brixton 1.8 mi; Walworth Road 2.1 mi; Tulse Hill 2.2 mi; Lambeth 2.5 mi",
+      "basis": "Screwfix stock checker"
+    },
+    {
+      "chain": "Toolstation",
+      "near": "SE14",
+      "branches": "Peckham, Old Kent Road SE15 1AJ (about 1.3 mi); Bermondsey, Rotherhithe New Rd SE16 3LL",
+      "basis": "directory listings; distance estimated"
+    },
+    {
+      "chain": "Toolstation",
+      "near": "SW9",
+      "branches": "Brixton, Lyham Road SW2 5DZ (about 1.3 mi)",
+      "basis": "directory listings; distance estimated"
+    },
+    {
+      "chain": "B&Q",
+      "near": "SE14 / SW9",
+      "branches": "Peckham, 524 Old Kent Road SE1 5BA (about 1.6 mi from SE14, 2.6 mi from SW9). Many diy.com lines are marketplace sellers: delivery only",
+      "basis": "B&Q store page; distance estimated"
+    },
+    {
+      "chain": "Selco",
+      "near": "SE14",
+      "branches": "Old Kent Road (St James Rd, about 1.5 mi); Catford (Bromley Rd A21)",
+      "basis": "Selco branch pages; distance estimated"
+    },
+    {
+      "chain": "Leyland SDM",
+      "near": "SE14 / SW9",
+      "branches": "Decorators' merchant: Dulwich, Tower Bridge Road, Streatham, Tooting. Good for Zinsser and anti-mould paint",
+      "basis": "company pages"
+    },
+    {
+      "chain": "Independent",
+      "near": "SE14",
+      "branches": "Howarth Timber, 115 Endwell Rd, Brockley SE4 2PE (timber, mouldings, about 0.8 mi); SIDS Plumbing & Heating, 297-301 Brockley Rd SE4 2QZ",
+      "basis": "directory listings; check hours"
+    },
+    {
+      "chain": "Amazon UK",
+      "near": "delivery",
+      "branches": "Second choice on every line: usually next-day delivery",
+      "basis": ""
+    }
   ],
   "items": [
     {
-      "id": "1", "room": "Front bedroom", "title": "Failed double-glazed unit",
+      "id": "1",
+      "room": "Front bedroom",
+      "title": "Failed double-glazed unit",
       "need": "Replace the sealed unit in the existing uPVC frame. Demisting is not recommended: it leaves drill holes, does not restore the argon, and is unlikely to count as a repair.",
       "measure": "Confirmed failed: the bottom sash of the left side light in the front bay (a narrow pane, roughly 450 x 650 mm by eye from the photo; measure it). Remove one bead and measure the unit's actual width, height and thickness (usually 24 or 28 mm; sash-style frames sometimes use slimmer units, which cost more). The bay sill is low, so the glass is probably within 800 mm of the floor: specify toughened. Check the other bay panes for mist between the glass on a cold morning, so all the failed units are quoted in one visit.",
       "qty": "1 unit confirmed (others to check)",
       "options": [
-        {"tier": "Budget", "rec": false, "supplier": "Online (Gloucester Sealed Units)", "name": "Made-to-measure unit, Low-E, argon, warm edge (supply only)", "price": "about £69 (about £82 toughened)", "url": "https://www.gloucestersealedunits.co.uk/", "img": "", "stock": "3-5 working days (7-10 toughened); order by phone", "notes": "Budget benchmark. Price worked out from their per-m² rates for about 600x900 mm. Needs someone to fit it."},
-        {"tier": "Budget", "rec": false, "supplier": "Online (Click2Glaze)", "name": "Made-to-measure sealed unit (supply only)", "price": "about £70-85 for one", "url": "https://www.click2glaze.co.uk/", "img": "", "stock": "10-12 working days, free delivery", "notes": "Instant online price calculator. The cheapest headline price is a multi-unit discount."},
-        {"tier": "Durable", "rec": true, "supplier": "Local glazier (supply and fit)", "name": "Pearson Glazing (Peckham) or Monsta Windows (Charlton): unit replacement in an existing frame", "price": "typically £70-180 fitted", "url": "", "img": "", "stock": "Usually measure, then fit 1-2 weeks later. Send photos and sizes first to get a firm quote.", "notes": "Pearson: Checkatrade 10.00 from 167 reviews. Monsta: Which? 5.0 from 19. Comes with a guarantee and the glazier carries the risk. Other options: Red Ant (Lewisham and Brixton). Replacing only the glass is not notifiable and needs no FENSA certificate."},
-        {"tier": "Alt", "rec": false, "supplier": "B&Q (Sealed Units Online)", "name": "Sealed unit 700x900 ±100 mm, 26 mm, toughened", "price": "£89.77", "url": "https://www.diy.com/search?term=sealed+unit", "img": "", "stock": "Delivery", "notes": "Aluminium spacer (not warm edge). U-value 1.2."}
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Online (Gloucester Sealed Units)",
+          "name": "Made-to-measure unit, Low-E, argon, warm edge (supply only)",
+          "price": "about £69 (about £82 toughened)",
+          "url": "https://www.gloucestersealedunits.co.uk/",
+          "img": "",
+          "stock": "3-5 working days (7-10 toughened); order by phone",
+          "notes": "Budget benchmark. Price worked out from their per-m² rates for about 600x900 mm. Needs someone to fit it."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Online (Click2Glaze)",
+          "name": "Made-to-measure sealed unit (supply only)",
+          "price": "about £70-85 for one",
+          "url": "https://www.click2glaze.co.uk/",
+          "img": "",
+          "stock": "10-12 working days, free delivery",
+          "notes": "Instant online price calculator. The cheapest headline price is a multi-unit discount."
+        },
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Local glazier (supply and fit)",
+          "name": "Pearson Glazing (Peckham) or Monsta Windows (Charlton): unit replacement in an existing frame",
+          "price": "typically £70-180 fitted",
+          "url": "",
+          "img": "",
+          "stock": "Usually measure, then fit 1-2 weeks later. Send photos and sizes first to get a firm quote.",
+          "notes": 
+earson: Checkatrade 10.00 from 167 reviews. Monsta: Which? 5.0 from 19. Comes with a guarantee and the glazier carries the risk. Other options: Red Ant (Lewisham and Brixton). Replacing only the glass is not notifiable and needs no FENSA certificate."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "B&Q (Sealed Units Online)",
+          "name": "Sealed unit 700x900 ±100 mm, 26 mm, toughened",
+          "price": "£89.77",
+          "url": "https://www.diy.com/search?term=sealed+unit",
+          "img": "",
+          "stock": "Delivery",
+          "notes": "Aluminium spacer (not warm edge). U-value 1.2."
+        }
       ]
     },
     {
-      "id": "2", "room": "Bedrooms and living room", "title": "Humidity indicators (for the tenants)",
+      "id": "2",
+      "room": "Bedrooms and living room",
+      "title": "Humidity indicators (for the tenants)",
       "need": "Battery digital thermo-hygrometers, so the tenants can see humidity and ventilate.",
-      "measure": "", "qty": "3",
+      "measure": "",
+      "qty": "3",
       "options": [
-        {"tier": "Budget", "rec": true, "supplier": "Amazon", "name": "ThermoPro TP49 digital hygrometer, 3-pack", "price": "£11.98", "url": "https://www.amazon.co.uk/dp/B08V1KXBQD", "img": "https://m.media-amazon.com/images/I/41ECXkcvNtL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.6★. Small and discreet, with a comfort indicator."},
-        {"tier": "Durable", "rec": false, "supplier": "Amazon", "name": "Govee Bluetooth thermo-hygrometer with app", "price": "£9.48 each", "url": "https://www.amazon.co.uk/dp/B086YYL439", "img": "https://m.media-amazon.com/images/I/41SjS8wNHmL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.5★. Logs history to a phone app, which helps if there is a damp dispute."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Forge steel thermometer and hygrometer (analogue dial)", "price": "£17.99", "url": "https://www.screwfix.com/search?search=943YC", "img": "https://media.screwfix.com/is/image/ae235/943YC_P", "stock": "Check", "notes": "A dial looks more traditional but is less accurate."}
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Amazon",
+          "name": "ThermoPro TP49 digital hygrometer, 3-pack",
+          "price": "£11.98",
+          "url": "https://www.amazon.co.uk/dp/B08V1KXBQD",
+          "img": "https://m.media-amazon.com/images/I/41ECXkcvNtL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.6★. Small and discreet, with a comfort indicator."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Govee Bluetooth thermo-hygrometer with app",
+          "price": "£9.48 each",
+          "url": "https://www.amazon.co.uk/dp/B086YYL439",
+          "img": "https://m.media-amazon.com/images/I/41SjS8wNHmL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.5★. Logs history to a phone app, which helps if there is a damp dispute."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Forge steel thermometer and hygrometer (analogue dial)",
+          "price": "£17.99",
+          "url": "https://www.screwfix.com/search?search=943YC",
+          "img": "https://media.screwfix.com/is/image/ae235/943YC_P",
+          "stock": "Check",
+          "notes": "A dial looks more traditional but is less accurate."
+        }
       ]
     },
     {
-      "id": "3", "room": "Front bedroom", "title": "Anti-mould paint (touch-up)",
+      "id": "3",
+      "room": "Front bedroom",
+      "title": "Anti-mould paint (touch-up)",
       "need": "Touch-up on accessible corners only, not a redecoration. Clean with mould wash first.",
-      "measure": "", "qty": "1 tin",
+      "measure": "",
+      "qty": "1 tin",
       "options": [
-        {"tier": "Budget", "rec": true, "supplier": "Screwfix", "name": "Ronseal Anti Mould Wall Paint, white matt, 750 ml", "price": "£25.49", "url": "https://www.screwfix.com/search?search=64218", "img": "https://media.screwfix.com/is/image/ae235/64218_P", "stock": "Check", "notes": "Right size for touch-ups."},
-        {"tier": "Durable", "rec": false, "supplier": "Screwfix / Leyland SDM", "name": "Zinsser Perma-White anti-mould, white matt, 2.5 L", "price": "£40.99", "url": "https://www.screwfix.com/search?search=3939G", "img": "https://media.screwfix.com/is/image/ae235/3939G_P", "stock": "Collect today: Lewisham (8), Surrey Canal Rd (9), Greenwich (5); Brixton (9), Walworth (7)", "notes": "Trade favourite with a 6-year mould guarantee. Worth it if more areas need doing later."},
-        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Zinsser Perma-White 1 L, white satin", "price": "£22.49", "url": "https://www.screwfix.com/search?search=13040", "img": "https://media.screwfix.com/is/image/ae235/13040_P", "stock": "Check", "notes": "Satin finish: better on woodwork and in the bathroom."}
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "Ronseal Anti Mould Wall Paint, white matt, 750 ml",
+          "price": "£25.49",
+          "url": "https://www.screwfix.com/search?search=64218",
+          "img": "https://media.screwfix.com/is/image/ae235/64218_P",
+          "stock": "Check",
+          "notes": "Right size for touch-ups."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Screwfix / Leyland SDM",
+          "name": "Zinsser Perma-White anti-mould, white matt, 2.5 L",
+          "price": "£40.99",
+          "url": "https://www.screwfix.com/search?search=3939G",
+          "img": "https://media.screwfix.com/is/image/ae235/3939G_P",
+          "stock": "Collect today: Lewisham (8), Surrey Canal Rd (9), Greenwich (5); Brixton (9), Walworth (7)",
+          "notes": "Trade favourite with a 6-year mould guarantee. Worth it if more areas need doing later."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Zinsser Perma-White 1 L, white satin",
+          "price": "£22.49",
+          "url": "https://www.screwfix.com/search?search=13040",
+          "img": "https://media.screwfix.com/is/image/ae235/13040_P",
+          "stock": "Check",
+          "notes": "Satin finish: better on woodwork and in the bathroom."
+        }
       ]
     },
     {
-      "id": "4", "room": "Living area", "title": "Water meter box / cover (indoor, visible)",
+      "id": "4",
+      "room": "Living area",
+      "title": "Water meter box / cover (indoor, visible)",
       "need": "Ready-made cover over the insulated pipes and meter. It must lift off or have a hatch so the meter can be read.",
-      "measure": "Estimated from a photo (scaled from the pipe lagging, about 45 mm across): the meter head is about 100 mm across and stands about 90-110 mm off the wall; the lagged pipe loop is about 170 mm wide and 200 mm tall; the stop valve with drain cock sits at bottom right near the floor. The box needs to be roughly 250 W x 350 H x 130 D mm inside, with a lift-off front or window so the meter can be read, and access to the valve. Measure the depth on site before buying.", "qty": "1",
+      "measure": "Estimated from a photo (scaled from the pipe lagging, about 45 mm across): the meter head is about 100 mm across and stands about 90-110 mm off the wall; the lagged pipe loop is about 170 mm wide and 200 mm tall; the stop valve with drain cock sits at bottom right near the floor. The box needs to be roughly 250 W x 350 H x 130 D mm inside, with a lift-off front or window so the meter can be read, and access to the valve. Measure the depth on site before buying.",
+      "qty": "1",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Howarth Timber (Brockley) / any merchant", "name": "Open-backed MDF or pine box, about 250 x 350 x 130 mm, with a lift-off or hinged front (optional clear acrylic window over the dial)", "price": "about £20-40 materials (estimate)", "url": "", "img": "", "stock": "Local merchant", "notes": "Ready-made boxes are rarely deep enough for a meter head. A simple box made to size fits properly, can be painted to match the wall, and lifts off for readings."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Amazon", "name": "Wooden decorative meter box cover with a door (sold for electric meters)", "price": "£50-100", "url": "https://www.amazon.co.uk/s?k=wooden+meter+box+cover+indoor", "img": "", "stock": "Delivery", "notes": "Finished furniture-style box with a door for reading. Check the internal depth is at least 130 mm and that it reaches down to the valve."},
-        {"tier": "Budget", "rec": false, "supplier": "Amazon", "name": "HAN-BB1 white pipework box cover, 500 x 400 x 75 mm", "price": "£37.00", "url": "https://www.amazon.co.uk/dp/B0D4R6XVP6", "img": "https://m.media-amazon.com/images/I/51c-FKspjgL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Probably TOO SHALLOW: 75 mm deep, but the meter head looks about 100 mm proud of the wall. Only if your measurement says it fits."},
-        {"tier": "Alt", "rec": false, "supplier": "Amazon", "name": "L-shaped paintable PVC pipe boxing kit", "price": "£55.85", "url": "https://www.amazon.co.uk/dp/B0GD7TN9KK", "img": "https://m.media-amazon.com/images/I/519ajo2qROL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Made for pipe runs into a corner. Suits the pipes below the meter, not the meter head."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Howarth Timber (Brockley) / any merchant",
+          "name": "Open-backed MDF or pine box, about 250 x 350 x 130 mm, with a lift-off or hinged front (optional clear acrylic window over the dial)",
+          "price": "about £20-40 materials (estimate)",
+          "url": "",
+          "img": "",
+          "stock": "Local merchant",
+          "notes": "Ready-made boxes are rarely deep enough for a meter head. A simple box made to size fits properly, can be painted to match the wall, and lifts off for readings."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Wooden decorative meter box cover with a door (sold for electric meters)",
+          "price": "£50-100",
+          "url": "https://www.amazon.co.uk/s?k=wooden+meter+box+cover+indoor",
+          "img": "",
+          "stock": "Delivery",
+          "notes": "Finished furniture-style box with a door for reading. Check the internal depth is at least 130 mm and that it reaches down to the valve."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "HAN-BB1 white pipework box cover, 500 x 400 x 75 mm",
+          "price": "£37.00",
+          "url": "https://www.amazon.co.uk/dp/B0D4R6XVP6",
+          "img": "https://m.media-amazon.com/images/I/51c-FKspjgL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "Probably TOO SHALLOW: 75 mm deep, but the meter head looks about 100 mm proud of the wall. Only if your measurement says it fits."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "L-shaped paintable PVC pipe boxing kit",
+          "price": "£55.85",
+          "url": "https://www.amazon.co.uk/dp/B0GD7TN9KK",
+          "img": "https://m.media-amazon.com/images/I/519ajo2qROL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "Made for pipe runs into a corner. Suits the pipes below the meter, not the meter head."
+        }
       ]
     },
     {
-      "id": "5", "room": "Internal stairs", "title": "Handrail (round rail on brass brackets)",
+      "id": "5",
+      "room": "Internal stairs",
+      "title": "Handrail (round rail on brass brackets)",
       "need": "Round hardwood or oak rail on stand-off brackets (50-60 mm gap), 900-1000 mm above the nosings, in brass or antique brass to match other fittings.",
-      "measure": "Rail length: nosing of the first step to the last, plus about 150 mm at each end. Brackets at most about 1 m apart, and into solid fixings.", "qty": "1 rail + brackets (length TBC)",
+      "measure": "Rail length: nosing of the first step to the last, plus about 150 mm at each end. Brackets at most about 1 m apart, and into solid fixings.",
+      "qty": "1 rail + brackets (length TBC)",
       "options": [
-        {"tier": "Aesthetic", "rec": true, "supplier": "B&Q (Jackson Woodturners)", "name": "Dark hardwood mopstick kit with brass end caps and brass wall brackets", "price": "£79.99 (1.8 m); £96.99 (2.4 m); longer sizes cost more", "url": "https://www.diy.com/search?term=5061053463889", "img": "https://media.diy.com/is/image/KingfisherDigital/jackson-woodturners-dark-hardwood-mopstick-with-brass-medium-end-caps-brass-wall-brackets-1800mm~5061053463889_01c_MP", "stock": "Delivery (marketplace)", "notes": "A complete Victorian look in one kit. Choose the length after measuring."},
-        {"tier": "Durable", "rec": false, "supplier": "Screwfix + Screwfix brackets", "name": "Richard Burbidge white oak round handrail kit 3.6 m, with brass brackets swapped in (Essentials polished brass 65 mm, £3.79 each)", "price": "£139.99 + about £15 brackets", "url": "https://www.screwfix.com/search?search=71777", "img": "https://media.screwfix.com/is/image/ae235/71777_P", "stock": "Kit: collect tomorrow at all nearby stores. Brass bracket 31299: collect today (Rotherhithe 6, Lewisham 2, Greenwich 2)", "notes": "Unfinished oak: oil or lacquer it. The kit comes with chrome caps; use brass brackets instead."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "B&Q (Cheshire Mouldings)", "name": "Natural white oak mopstick handrail, 54 mm, 3.6 m (2.4 m £124)", "price": "£168", "url": "https://www.diy.com/search?term=5055170310478", "img": "https://media.diy.com/is/image/Kingfisher/cheshire-mouldings-natural-white-oak-mopstick-handrail-l-3-6m-d-54mm-h-51mm~5055170310478_01c_bq", "stock": "Delivery", "notes": "A traditional mopstick profile (flat back). Brackets are extra."},
-        {"tier": "Budget", "rec": false, "supplier": "Selco", "name": "Softwood mopstick handrail 50 x 50 mm + Selco brass brackets 63 mm (5-pack £18.65)", "price": "£6.29 per length + £18.65", "url": "https://www.selcobw.com/catalogsearch/results/shop-by/?q=mopstick", "img": "", "stock": "Old Kent Road branch: check", "notes": "Cheapest, but softwood: stain it dark or paint it. Not hardwood."}
+        {
+          "tier": "Aesthetic",
+          "rec": true,
+          "supplier": "B&Q (Jackson Woodturners)",
+          "name": "Dark hardwood mopstick kit with brass end caps and brass wall brackets",
+          "price": "£79.99 (1.8 m); £96.99 (2.4 m); longer sizes cost more",
+          "url": "https://www.diy.com/search?term=5061053463889",
+          "img": "https://media.diy.com/is/image/KingfisherDigital/jackson-woodturners-dark-hardwood-mopstick-with-brass-medium-end-caps-brass-wall-brackets-1800mm~5061053463889_01c_MP",
+          "stock": "Delivery (marketplace)",
+          "notes": "A complete Victorian look in one kit. Choose the length after measuring."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Screwfix + Screwfix brackets",
+          "name": "Richard Burbidge white oak round handrail kit 3.6 m, with brass brackets swapped in (Essentials polished brass 65 mm, £3.79 each)",
+          "price": "£139.99 + about £15 brackets",
+          "url": "https://www.screwfix.com/search?search=71777",
+          "img": "https://media.screwfix.com/is/image/ae235/71777_P",
+          "stock": "Kit: collect tomorrow at all nearby stores. Brass bracket 31299: collect today (Rotherhithe 6, Lewisham 2, Greenwich 2)",
+          "notes": "Unfinished oak: oil or lacquer it. The kit comes with chrome caps; use brass brackets instead."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "B&Q (Cheshire Mouldings)",
+          "name": "Natural white oak mopstick handrail, 54 mm, 3.6 m (2.4 m £124)",
+          "price": "£168",
+          "url": "https://www.diy.com/search?term=5055170310478",
+          "img": "https://media.diy.com/is/image/Kingfisher/cheshire-mouldings-natural-white-oak-mopstick-handrail-l-3-6m-d-54mm-h-51mm~5055170310478_01c_bq",
+          "stock": "Delivery",
+          "notes": "A traditional mopstick profile (flat back). Brackets are extra."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Selco",
+          "name": "Softwood mopstick handrail 50 x 50 mm + Selco brass brackets 63 mm (5-pack £18.65)",
+          "price": "£6.29 per length + £18.65",
+          "url": "https://www.selcobw.com/catalogsearch/results/shop-by/?q=mopstick",
+          "img": "",
+          "stock": "Old Kent Road branch: check",
+          "notes": "Cheapest, but softwood: stain it dark or paint it. Not hardwood."
+        }
       ],
       "extras": [
-        {"supplier": "Toolstation", "name": "★ Your pick: Lockworks handrail bracket, polished brass (AG120). 79 mm fitted depth, fixings supplied, interior use. 6 in stock at Wandsworth", "price": "£3.40 each (about £14-17 for 4-5)", "url": "https://www.toolstation.com/lockworks-handrail-bracket/pAG120", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/AG120.jpg"},
-        {"supplier": "B&Q", "name": "Rothley antique brass handrail wall bracket, 40 mm", "price": "£16 each", "url": "https://www.diy.com/search?term=5013144060347", "img": "https://media.diy.com/is/image/KingfisherDigital/rothley-antique-brass-bannister-staircase-handrail-wall-bracket-diam-40mm~5013144060347_01c_MP"},
-        {"supplier": "B&Q", "name": "AFIT satin brass handrail bracket 63 mm, 4-pack", "price": "£16.90", "url": "https://www.diy.com/search?term=5063498143517", "img": "https://media.diy.com/is/image/KingfisherDigital/afit-handrail-bracket-satin-brass-pack-4-banister-brackets-stair-banister-wall-handrail-63mm~5063498143517_01c_MP"},
-        {"supplier": "Screwfix", "name": "Essentials handrail bracket, polished brass 65 mm", "price": "£3.79 each", "url": "https://www.screwfix.com/search?search=31299", "img": "https://media.screwfix.com/is/image/ae235/31299_P"}
+        {
+          "supplier": "Toolstation",
+          "name": "★ Your pick: Lockworks handrail bracket, polished brass (AG120). 79 mm fitted depth, fixings supplied, interior use. 6 in stock at Wandsworth",
+          "price": "£3.40 each (about £14-17 for 4-5)",
+          "url": "https://www.toolstation.com/lockworks-handrail-bracket/pAG120",
+          "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/AG120.jpg"
+        },
+        {
+          "supplier": "B&Q",
+          "name": "Rothley antique brass handrail wall bracket, 40 mm",
+          "price": "£16 each",
+          "url": "https://www.diy.com/search?term=5013144060347",
+          "img": "https://media.diy.com/is/image/KingfisherDigital/rothley-antique-brass-bannister-staircase-handrail-wall-bracket-diam-40mm~5013144060347_01c_MP"
+        },
+        {
+          "supplier": "B&Q",
+          "name": "AFIT satin brass handrail bracket 63 mm, 4-pack",
+          "price": "£16.90",
+          "url": "https://www.diy.com/search?term=5063498143517",
+          "img": "https://media.diy.com/is/image/KingfisherDigital/afit-handrail-bracket-satin-brass-pack-4-banister-brackets-stair-banister-wall-handrail-63mm~5063498143517_01c_MP"
+        },
+        {
+          "supplier": "Screwfix",
+          "name": "Essentials handrail bracket, polished brass 65 mm",
+          "price": "£3.79 each",
+          "url": "https://www.screwfix.com/search?search=31299",
+          "img": "https://media.screwfix.com/is/image/ae235/31299_P"
+        }
       ]
     },
     {
-      "id": "6", "room": "Back bedroom", "title": "Sash window: seals",
+      "id": "6",
+      "room": "Back bedroom",
+      "title": "Sash window: seals",
       "need": "Screw-fixed seal on the bottom of the sash (self-adhesive ones haven't lasted), possibly doubled; brush-pile seals in the staff beads. Sealant and paint for the touch-up are already in hand.",
-      "measure": "Sash width (bottom seal); runner lengths (staff beads).", "qty": "1 bottom seal + 2 runners",
+      "measure": "Sash width (bottom seal); runner lengths (staff beads).",
+      "qty": "1 bottom seal + 2 runners",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Stormguard heavy duty brush seal, aluminium, 0.91 m (screw-fixed)", "price": "£5.59", "url": "https://www.screwfix.com/search?search=14354", "img": "https://media.screwfix.com/is/image/ae235/14354_P", "stock": "Collect today: Lewisham (2), Rotherhithe (1); Brixton (8), Walworth (15)", "notes": "Screw-fixed to the bottom rail. Buy 2 to make a double seal."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Stormguard heavy duty brush seal, gold anodised, 0.91 m", "price": "£5.79", "url": "https://www.screwfix.com/search?search=11750", "img": "https://media.screwfix.com/is/image/ae235/11750_P", "stock": "Check", "notes": "Brass look, to suit period ironmongery."},
-        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Stormguard self-adhesive brush pile weatherstrip, white, 5 m", "price": "£12.59", "url": "https://www.screwfix.com/search?search=30322", "img": "https://media.screwfix.com/is/image/ae235/30322_P", "stock": "Check", "notes": "For the staff-bead runners. Tack with small pins as well, because adhesive alone fails."},
-        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Schlegel AQ21 window and door seal, white, 6 m", "price": "£11.97", "url": "https://www.screwfix.com/search?search=7963P", "img": "https://media.screwfix.com/is/image/ae235/7963P_P", "stock": "Check", "notes": "A Q-lon foam seal; fits in a routed groove."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "Stormguard heavy duty brush seal, aluminium, 0.91 m (screw-fixed)",
+          "price": "£5.59",
+          "url": "https://www.screwfix.com/search?search=14354",
+          "img": "https://media.screwfix.com/is/image/ae235/14354_P",
+          "stock": "Collect today: Lewisham (2), Rotherhithe (1); Brixton (8), Walworth (15)",
+          "notes": "Screw-fixed to the bottom rail. Buy 2 to make a double seal."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Stormguard heavy duty brush seal, gold anodised, 0.91 m",
+          "price": "£5.79",
+          "url": "https://www.screwfix.com/search?search=11750",
+          "img": "https://media.screwfix.com/is/image/ae235/11750_P",
+          "stock": "Check",
+          "notes": "Brass look, to suit period ironmongery."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Stormguard self-adhesive brush pile weatherstrip, white, 5 m",
+          "price": "£12.59",
+          "url": "https://www.screwfix.com/search?search=30322",
+          "img": "https://media.screwfix.com/is/image/ae235/30322_P",
+          "stock": "Check",
+          "notes": "For the staff-bead runners. Tack with small pins as well, because adhesive alone fails."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Schlegel AQ21 window and door seal, white, 6 m",
+          "price": "£11.97",
+          "url": "https://www.screwfix.com/search?search=7963P",
+          "img": "https://media.screwfix.com/is/image/ae235/7963P_P",
+          "stock": "Check",
+          "notes": "A Q-lon foam seal; fits in a routed groove."
+        }
       ]
     },
     {
-      "id": "7", "room": "Bathroom", "title": "Humidity-controlled extractor fan",
+      "id": "7",
+      "room": "Bathroom",
+      "title": "Humidity-controlled extractor fan",
       "need": "Replace the old timer fan with a humidistat fan. A timer fan needs a permanent live to run on, so the permanent and switched lives are very likely already there: a humidistat fan should be a like-for-like swap. Check the zone: over the bath or shower (zone 1) needs a 12 V SELV fan or a mains fan rated for zone 1, with 30 mA RCD protection.",
-      "measure": "Wall hole diameter and the space around the grille. Fans with a larger front plate cover an oversized hole.", "qty": "1 (electrician to fit)",
+      "measure": "Wall hole diameter and the space around the grille. Fans with a larger front plate cover an oversized hole.",
+      "qty": "1 (electrician to fit)",
       "options": [
-        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Manrose XF100H 100 mm humidistat fan", "price": "£40.00", "url": "https://www.screwfix.com/search?search=15722", "img": "https://media.screwfix.com/is/image/ae235/15722_P", "stock": "Collect today: Surrey Canal Rd (2), Rotherhithe (2), Greenwich (1)", "notes": "Basic and reliable. Small front plate."},
-        {"tier": "Budget", "rec": false, "supplier": "Toolstation", "name": "Airvent 100 mm low profile humidistat fan", "price": "£36.89", "url": "https://www.toolstation.com/p46262", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/46262.jpg", "stock": "Check", "notes": "Cheapest."},
-        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Manrose Quiet Fan X5 QF100HTX5OP, humidistat and timer", "price": "£79.99", "url": "https://www.screwfix.com/search?search=340JL", "img": "https://media.screwfix.com/is/image/ae235/340JL_P", "stock": "Collect tomorrow at all nearby stores", "notes": "Quiet (tenants actually leave it on), with a larger front plate to hide an untidy hole."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Vent-Axia Lo-Carbon Silhouette 100 mm", "price": "£119.99", "url": "https://www.screwfix.com/search?search=41748", "img": "https://media.screwfix.com/is/image/ae235/41748_P", "stock": "Check", "notes": "Slim, flat, minimal front; low running cost."},
-        {"tier": "Alt", "rec": false, "supplier": "Toolstation", "name": "Xpelair Simply Silent 100 mm LOW VOLTAGE (SELV) humidistat fan", "price": "£91.29", "url": "https://www.toolstation.com/p31086", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/31086.jpg", "stock": "Check", "notes": "Use this if the fan is in zone 1. Comes with a transformer, which goes outside the zones."}
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Manrose XF100H 100 mm humidistat fan",
+          "price": "£40.00",
+          "url": "https://www.screwfix.com/search?search=15722",
+          "img": "https://media.screwfix.com/is/image/ae235/15722_P",
+          "stock": "Collect today: Surrey Canal Rd (2), Rotherhithe (2), Greenwich (1)",
+          "notes": "Basic and reliable. Small front plate."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Toolstation",
+          "name": "Airvent 100 mm low profile humidistat fan",
+          "price": "£36.89",
+          "url": "https://www.toolstation.com/p46262",
+          "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/46262.jpg",
+          "stock": "Check",
+          "notes": "Cheapest."
+        },
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "Manrose Quiet Fan X5 QF100HTX5OP, humidistat and timer",
+          "price": "£79.99",
+          "url": "https://www.screwfix.com/search?search=340JL",
+          "img": "https://media.screwfix.com/is/image/ae235/340JL_P",
+          "stock": "Collect tomorrow at all nearby stores",
+          "notes": "Quiet (tenants actually leave it on), with a larger front plate to hide an untidy hole."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Vent-Axia Lo-Carbon Silhouette 100 mm",
+          "price": "£119.99",
+          "url": "https://www.screwfix.com/search?search=41748",
+          "img": "https://media.screwfix.com/is/image/ae235/41748_P",
+          "stock": "Check",
+          "notes": "Slim, flat, minimal front; low running cost."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Toolstation",
+          "name": "Xpelair Simply Silent 100 mm LOW VOLTAGE (SELV) humidistat fan",
+          "price": "£91.29",
+          "url": "https://www.toolstation.com/p31086",
+          "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/31086.jpg",
+          "stock": "Check",
+          "notes": "Use this if the fan is in zone 1. Comes with a transformer, which goes outside the zones."
+        }
       ]
     },
     {
-      "id": "8", "room": "Bathroom", "title": "Threshold over the raised tile edge",
+      "id": "8",
+      "room": "Bathroom",
+      "title": "Threshold over the raised tile edge",
       "need": "Protect the raised edge of the new tiles at the doorway. Fallback: a hardwood strip fixed with Gripfill.",
-      "measure": "Doorway width and step height (tile surface to the floor beyond).", "qty": "1",
+      "measure": "Doorway width and step height (tile surface to the floor beyond).",
+      "qty": "1",
       "options": [
-        {"tier": "Aesthetic", "rec": true, "supplier": "BC Ceramics (Schlüter)", "name": "Schlüter RENO-MU transition ramp, brass, 2.5 m", "price": "£42.60", "url": "https://www.bcceramics.co.uk/products/schluter-reno-mu-flooring-transition-ramp-brass-2-5m", "img": "", "stock": "Delivery; Topps Tiles stores may stock Schlüter RENO-U (ask)", "notes": "A proper ramp made for a tile-to-floor height change. Brass patinates naturally."},
-        {"tier": "Budget", "rec": false, "supplier": "B&Q", "name": "GoodHome DECOR35 matt gold effect threshold, 93 cm x 37 mm", "price": "£9", "url": "https://www.diy.com/search?term=3663602529217", "img": "https://media.diy.com/is/image/Kingfisher/goodhome-decor35-matt-gold-effect-threshold-l-93cm-w-37mm~3663602529217_01c_bq", "stock": "Check at Old Kent Road", "notes": "Flat cover strip. Only suits a small height difference."},
-        {"tier": "Alt", "rec": false, "supplier": "Howarth Timber / any", "name": "Hardwood (oak) threshold strip, chamfered, fixed with Gripfill", "price": "about £8-15", "url": "", "img": "", "stock": "Local", "notes": "Your fallback. Seal the end grain."}
+        {
+          "tier": "Aesthetic",
+          "rec": true,
+          "supplier": "BC Ceramics (Schlüter)",
+          "name": "Schlüter RENO-MU transition ramp, brass, 2.5 m",
+          "price": "£42.60",
+          "url": "https://www.bcceramics.co.uk/products/schluter-reno-mu-flooring-transition-ramp-brass-2-5m",
+          "img": "",
+          "stock": "Delivery; Topps Tiles stores may stock Schlüter RENO-U (ask)",
+          "notes": "A proper ramp made for a tile-to-floor height change. Brass patinates naturally."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "B&Q",
+          "name": "GoodHome DECOR35 matt gold effect threshold, 93 cm x 37 mm",
+          "price": "£9",
+          "url": "https://www.diy.com/search?term=3663602529217",
+          "img": "https://media.diy.com/is/image/Kingfisher/goodhome-decor35-matt-gold-effect-threshold-l-93cm-w-37mm~3663602529217_01c_bq",
+          "stock": "Check at Old Kent Road",
+          "notes": "Flat cover strip. Only suits a small height difference."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Howarth Timber / any",
+          "name": "Hardwood (oak) threshold strip, chamfered, fixed with Gripfill",
+          "price": "about £8-15",
+          "url": "",
+          "img": "",
+          "stock": "Local",
+          "notes": "Your fallback. Seal the end grain."
+        }
       ]
     },
     {
-      "id": "9", "room": "Deck and outside steps", "title": "Grip: strips, nosings, cleaner",
+      "id": "9",
+      "room": "Deck and outside steps",
+      "title": "Grip: strips, nosings, cleaner",
       "need": "Keep using decking OIL, not stain (stain and anti-slip coatings form a film and flake). Get grip from screw-fixed GRP strips and nosings. Clean off algae before re-oiling.",
-      "measure": "Number of treads and their width; deck walking lines.", "qty": "TBC",
+      "measure": "Number of treads and their width; deck walking lines.",
+      "qty": "16-20 strips: one per step (all steps) plus about 10 boards on the walking routes. Not every board.",
       "options": [
-        {"tier": "Budget", "rec": true, "supplier": "Slips Away (direct)", "name": "Beige GRP anti-slip decking strips, 1000 x 50 mm (sold singly, with quantity discounts)", "price": "£4.99 each; 8 for £39.36; 10 for £48.50; 20 for £94.80", "url": "https://slipsaway.co.uk/products/new-beige-non-slip-decking-strips", "img": "https://cdn.shopify.com/s/files/1/0619/6307/5793/products/50mm-wide-non-slip-anti-skid-decking-strips-safety-and-style-for-outdoor-space-beige-344053.jpg", "stock": "Delivery (check the delivery charge at checkout)", "notes": "Same maker as the B&Q marketplace pack (8 for £45.26, free delivery): direct is cheaper unless the delivery charge closes the gap. Colours: black, brown, beige, grey, green, yellow, hazard (all £4.99/m). No blue from Slips Away, and no other UK supplier found sells blue GRP strips. Grey is the nearest to the blue-grey paintwork. Lengths 500 mm to 3 m."},
-        {"tier": "Durable", "rec": false, "supplier": "Toolstation", "name": "Anti-slip GRP decking strip, black, 50 mm x 1 m (90 mm wide £19.99)", "price": "£11.49 each", "url": "https://www.toolstation.com/p63827", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/63827.jpg", "stock": "Check at Peckham / Brixton", "notes": "Black, to match the black nosings and the house."},
-        {"tier": "Aesthetic", "rec": true, "supplier": "Toolstation", "name": "Anti-slip stair nosing 55 x 55 mm x 1 m, black (for the steps)", "price": "£22.49", "url": "https://www.toolstation.com/p45992", "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/45992.jpg", "stock": "Check", "notes": "Screwfix COBAGRiP black nosing (£22.99) is NOT available for click & collect nearby: delivery only."},
-        {"tier": "Alt", "rec": false, "supplier": "Amazon", "name": "Osmo Anti-Slip Decking Oil 430, clear, 2.5 L", "price": "£87.21", "url": "https://www.amazon.co.uk/dp/B0791DXX74", "img": "https://m.media-amazon.com/images/I/81LMBKUiVaL._AC_SL400_.jpg", "stock": "Delivery", "notes": "A true oil with fine grit, so it recoats like normal oil. Use on treads where strips don't suit."},
-        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Ronseal decking cleaner, 5 L", "price": "£13.49", "url": "https://www.screwfix.com/search?search=47649", "img": "https://media.screwfix.com/is/image/ae235/47649_P", "stock": "Check", "notes": "Use before oiling, to remove algae and green slime."}
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Slips Away (direct)",
+          "name": "Beige GRP anti-slip decking strips, 1000 x 50 mm (sold singly, with quantity discounts)",
+          "price": "£4.99 each; 8 for £39.36; 10 for £48.50; 20 for £94.80",
+          "url": "https://slipsaway.co.uk/products/new-beige-non-slip-decking-strips",
+          "img": "https://cdn.shopify.com/s/files/1/0619/6307/5793/products/50mm-wide-non-slip-anti-skid-decking-strips-safety-and-style-for-outdoor-space-beige-344053.jpg",
+          "stock": "Delivery (check the delivery charge at checkout)",
+          "notes": "Same maker as the B&Q marketplace pack (8 for £45.26, free delivery): direct is cheaper unless the delivery charge closes the gap. Colours: black, brown, beige, grey, green, yellow, hazard (all £4.99/m). No blue from Slips Away, and no other UK supplier found sells blue GRP strips. Grey is the nearest to the blue-grey paintwork. Lengths 500 mm to 3 m."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Toolstation",
+          "name": "Anti-slip GRP decking strip, black, 50 mm x 1 m (90 mm wide £19.99)",
+          "price": "£11.49 each",
+          "url": "https://www.toolstation.com/p63827",
+          "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/63827.jpg",
+          "stock": "Check at Peckham / Brixton",
+          "notes": "Black, to match the black nosings and the house."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": true,
+          "supplier": "Toolstation",
+          "name": "Anti-slip stair nosing 55 x 55 mm x 1 m, black (for the steps)",
+          "price": "£22.49",
+          "url": "https://www.toolstation.com/p45992",
+          "img": "https://cdn.aws.toolstation.com/images/141020-UK/250/45992.jpg",
+          "stock": "Check",
+          "notes": "Screwfix COBAGRiP black nosing (£22.99) is NOT available for click & collect nearby: delivery only."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Osmo Anti-Slip Decking Oil 430, clear, 2.5 L",
+          "price": "£87.21",
+          "url": "https://www.amazon.co.uk/dp/B0791DXX74",
+          "img": "https://m.media-amazon.com/images/I/81LMBKUiVaL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "A true oil with fine grit, so it recoats like normal oil. Use on treads where strips don't suit."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Ronseal decking cleaner, 5 L",
+          "price": "£13.49",
+          "url": "https://www.screwfix.com/search?search=47649",
+          "img": "https://media.screwfix.com/is/image/ae235/47649_P",
+          "stock": "Check",
+          "notes": "Use before oiling, to remove algae and green slime."
+        }
       ]
     },
     {
-      "id": "10", "room": "Deck", "title": "Joists, post bottoms, cut ends",
+      "id": "10",
+      "room": "Deck",
+      "title": "Joists, post bottoms, cut ends",
       "need": "Plates and brackets on loosening joists (bigger repairs in summer). Protect post bottoms: leave a drainage gap where boards meet posts, fit post caps, avoid shrouds that trap water. Treat every cut end of tanalised timber.",
-      "measure": "Post size (75 or 100 mm); number of joists to plate.", "qty": "TBC",
+      "measure": "Post size (75 or 100 mm); number of joists to plate.",
+      "qty": "TBC",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Sabrefix hand nail plates, galvanised, 150 x 75 mm, 25-pack", "price": "£15.24", "url": "https://www.screwfix.com/search?search=69215", "img": "https://media.screwfix.com/is/image/ae235/69215_P", "stock": "Collect today at most nearby stores (1-2 each)", "notes": "Screw them on with short structural screws, not nails, on a deck that flexes."},
-        {"tier": "Durable", "rec": false, "supplier": "Screwfix", "name": "Sabrefix heavy duty angle brackets, galvanised, 63 x 150 mm, 10-pack", "price": "£27.58", "url": "https://www.screwfix.com/search?search=20012", "img": "https://media.screwfix.com/is/image/ae235/20012_P", "stock": "Check", "notes": "Joist-to-bearer or joist-to-post reinforcement."},
-        {"tier": "Aesthetic", "rec": true, "supplier": "Amazon", "name": "IRONTITE metal post caps 75 mm, black, 5-pack", "price": "£14.45", "url": "https://www.amazon.co.uk/dp/B0D2LLK46W", "img": "https://m.media-amazon.com/images/I/71FSIj1rZkL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.7★. Black suits the house. A galvanised version is also £14.45."},
-        {"tier": "Alt", "rec": false, "supplier": "Amazon", "name": "UFURMATE post base cover, black, 100 x 100 mm inside, 4-pack", "price": "£13.75", "url": "https://www.amazon.co.uk/dp/B0CHRVPYC2", "img": "https://m.media-amazon.com/images/I/41tMpkUJAlL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Tidies the gap at the post base. Do not seal it down: set it on small packers so the drainage gap stays open. Fits 100 mm posts only."},
-        {"tier": "Budget", "rec": true, "supplier": "Amazon", "name": "Rustins Advanced End Grain Wood Protector, 500 ml", "price": "£9.89", "url": "https://www.amazon.co.uk/dp/B075MYHBXX", "img": "https://m.media-amazon.com/images/I/71J-qAmYICL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Green tint shows what you've treated. Enough for all the cut ends."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "Sabrefix hand nail plates, galvanised, 150 x 75 mm, 25-pack",
+          "price": "£15.24",
+          "url": "https://www.screwfix.com/search?search=69215",
+          "img": "https://media.screwfix.com/is/image/ae235/69215_P",
+          "stock": "Collect today at most nearby stores (1-2 each)",
+          "notes": "Screw them on with short structural screws, not nails, on a deck that flexes."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Sabrefix heavy duty angle brackets, galvanised, 63 x 150 mm, 10-pack",
+          "price": "£27.58",
+          "url": "https://www.screwfix.com/search?search=20012",
+          "img": "https://media.screwfix.com/is/image/ae235/20012_P",
+          "stock": "Check",
+          "notes": "Joist-to-bearer or joist-to-post reinforcement."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": true,
+          "supplier": "Amazon",
+          "name": "IRONTITE metal post caps 75 mm, black, 5-pack",
+          "price": "£14.45",
+          "url": "https://www.amazon.co.uk/dp/B0D2LLK46W",
+          "img": "https://m.media-amazon.com/images/I/71FSIj1rZkL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.7★. Black suits the house. A galvanised version is also £14.45."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "UFURMATE post base cover, black, 100 x 100 mm inside, 4-pack",
+          "price": "£13.75",
+          "url": "https://www.amazon.co.uk/dp/B0CHRVPYC2",
+          "img": "https://m.media-amazon.com/images/I/41tMpkUJAlL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "Tidies the gap at the post base. Do not seal it down: set it on small packers so the drainage gap stays open. Fits 100 mm posts only."
+        },
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Amazon",
+          "name": "Rustins Advanced End Grain Wood Protector, 500 ml",
+          "price": "£9.89",
+          "url": "https://www.amazon.co.uk/dp/B075MYHBXX",
+          "img": "https://m.media-amazon.com/images/I/71J-qAmYICL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "Green tint shows what you've treated. Enough for all the cut ends."
+        }
       ]
     },
     {
-      "id": "11", "room": "Outside steps", "title": "Handrail by the house wall",
+      "id": "11",
+      "room": "Outside steps",
+      "title": "Handrail by the house wall",
       "need": "A continuous black metal rail fixed to the wall (preferred: quick and safest). Check that the product is sold as a load-bearing handrail, not a decorative rail.",
-      "measure": "Rail length, number of steps, distance from the wall.", "qty": "1",
+      "measure": "Rail length, number of steps, distance from the wall.",
+      "qty": "1",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Rothley steel handrail kit, matt black, 1.2 m (3.6 m £67, delivery only)", "price": "£37.00", "url": "https://www.screwfix.com/search?search=317EA", "img": "https://media.screwfix.com/is/image/ae235/317EA_P", "stock": "1.2 m: collect tomorrow at all nearby stores (SE14 and SW9). 3.6 m (814KN): not available for collection, delivery only", "notes": "A complete kit. Use stainless or galvanised screws and touch up the cut ends outdoors."},
-        {"tier": "Budget", "rec": false, "supplier": "Amazon", "name": "Wall-mount handrail for 1-3 outdoor steps, black", "price": "£28.99", "url": "https://www.amazon.co.uk/dp/B0FDQMG27S", "img": "https://m.media-amazon.com/images/I/71Fs12PVN5L._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.8★. U-shaped grab rail: fine for a short flight."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Amazon", "name": "Wrought-iron style outdoor stair rail, 1-2 steps, wall-mounted", "price": "£60.66", "url": "https://www.amazon.co.uk/dp/B0DF7RF1CC", "img": "https://m.media-amazon.com/images/I/71hj7pPlCRL._AC_SL400_.jpg", "stock": "Delivery", "notes": "Has the period railing look. Check it is long enough for the flight."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "Rothley steel handrail kit, matt black, 1.2 m (3.6 m £67, delivery only)",
+          "price": "£37.00",
+          "url": "https://www.screwfix.com/search?search=317EA",
+          "img": "https://media.screwfix.com/is/image/ae235/317EA_P",
+          "stock": "1.2 m: collect tomorrow at all nearby stores (SE14 and SW9). 3.6 m (814KN): not available for collection, delivery only",
+          "notes": "A complete kit. Use stainless or galvanised screws and touch up the cut ends outdoors."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Wall-mount handrail for 1-3 outdoor steps, black",
+          "price": "£28.99",
+          "url": "https://www.amazon.co.uk/dp/B0FDQMG27S",
+          "img": "https://m.media-amazon.com/images/I/71Fs12PVN5L._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.8★. U-shaped grab rail: fine for a short flight."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Wrought-iron style outdoor stair rail, 1-2 steps, wall-mounted",
+          "price": "£60.66",
+          "url": "https://www.amazon.co.uk/dp/B0DF7RF1CC",
+          "img": "https://m.media-amazon.com/images/I/71hj7pPlCRL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "Has the period railing look. Check it is long enough for the flight."
+        }
       ]
     },
     {
-      "id": "12", "room": "Balcony", "title": "Balustrade backstops (removable for painting)",
+      "id": "12",
+      "room": "Balcony",
+      "title": "Balustrade backstops (removable for painting)",
       "need": "Paintable backstop brackets fixed to the posts behind the balustrades (not screwed to them), so the panels can't fall through but can still come off for painting. Metal brackets inside the balustrade as a back-up.",
-      "measure": "Number of posts; balustrade thickness.", "qty": "TBC",
+      "measure": "Number of posts; balustrade thickness.",
+      "qty": "TBC",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "Rothley galvanised steel angle 36 x 36 mm, 1 m (cut to length)", "price": "£6.29", "url": "https://www.screwfix.com/search?search=880JP", "img": "https://media.screwfix.com/is/image/ae235/880JP_P", "stock": "Check", "notes": "Strongest. Etch-prime, then paint to match."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix", "name": "Rothley anodised aluminium angle 41 x 23 mm, 1 m", "price": "£9.99", "url": "https://www.screwfix.com/search?search=476JP", "img": "https://media.screwfix.com/is/image/ae235/476JP_P", "stock": "Check", "notes": "Neat and light. Needs an etch primer before painting."},
-        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Sabrefix heavy duty angle brackets, galvanised, 63 x 90 mm, 10-pack", "price": "£21.49", "url": "https://www.screwfix.com/search?search=86180", "img": "https://media.screwfix.com/is/image/ae235/86180_P", "stock": "Check", "notes": "Back-up brackets inside the balustrade."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "Rothley galvanised steel angle 36 x 36 mm, 1 m (cut to length)",
+          "price": "£6.29",
+          "url": "https://www.screwfix.com/search?search=880JP",
+          "img": "https://media.screwfix.com/is/image/ae235/880JP_P",
+          "stock": "Check",
+          "notes": "Strongest. Etch-prime, then paint to match."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Rothley anodised aluminium angle 41 x 23 mm, 1 m",
+          "price": "£9.99",
+          "url": "https://www.screwfix.com/search?search=476JP",
+          "img": "https://media.screwfix.com/is/image/ae235/476JP_P",
+          "stock": "Check",
+          "notes": "Neat and light. Needs an etch primer before painting."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Sabrefix heavy duty angle brackets, galvanised, 63 x 90 mm, 10-pack",
+          "price": "£21.49",
+          "url": "https://www.screwfix.com/search?search=86180",
+          "img": "https://media.screwfix.com/is/image/ae235/86180_P",
+          "stock": "Check",
+          "notes": "Back-up brackets inside the balustrade."
+        }
       ]
     },
     {
-      "id": "12b", "room": "Deck and outside steps", "title": "Timber handrail and balustrade (build from a kit of parts)",
+      "id": "12b",
+      "room": "Deck and outside steps",
+      "title": "Timber handrail and balustrade (build from a kit of parts)",
       "need": "Guarding along the open deck edges and steps, built from the Cheshire Mouldings Core Deck system: a handrail and base rail (each with a fillet included) with 41 mm square spindles slotted between them, on 83 mm newel posts. Building Regs guide (Part K): 1100 mm high on a deck or balcony edge, 900 mm on steps; gaps must stop a 100 mm sphere, so 41 mm spindles at no more than about 135 mm centres and under 100 mm clear at the bottom. Newels bolted to the joists (M10 coach bolts, 2 per post) do the structural work; the rails alone are not enough.",
       "measure": "The length of each open edge, and the steps' rise and going. Count the newels: one at every end and corner, and at most about 1.8-2.4 m apart. Check where the joists are for bolting the newels.",
       "qty": "Per 2.4 m bay: 2 rails, about 18 spindles, plus 1 newel (and 1 extra at each end)",
       "options": [
-        {"tier": "Budget", "rec": true, "supplier": "Howarth Timber (Brockley)", "name": "Cheshire Mouldings decking rail, universal, UC3 treated, with fillet, 2395 x 68 x 44 mm (DHU24): use as both handrail and base rail", "price": "£16.14 each", "url": "https://www.howarth-timber.co.uk/cheshire-mouldings-decking-rail-universal-uc3-treated-fillet-2-395-x-68-x-44mm-dhu24", "img": "", "stock": "Click & collect shows 'Available'; branch stock not stated, so ring Brockley. Delivery 3-5 days", "notes": "Treated pine. Oil it with the rest of the deck."},
-        {"tier": "Budget", "rec": true, "supplier": "Howarth Timber (Brockley)", "name": "Core Deck pine square spindle, UC3 treated, 895 x 41 x 41 mm (41PBTR)", "price": "£2.16 each", "url": "https://www.howarth-timber.co.uk/cheshire-moulding-core-deck-pine-square-spindle-uc3-treated-895-x-41-x-41mm-41pbtr", "img": "", "stock": "Click & collect 'Available'; ring Brockley for numbers", "notes": "The spindle that goes with the DHU24 rail. About 18 per 2.4 m bay at about 135 mm centres (no more than 95 mm clear between spindles). Ask the branch to confirm the fillet takes 41 mm spindles."},
-        {"tier": "Alt", "rec": false, "supplier": "Howarth Timber (Brockley)", "name": "Core Deck American spindle, UC3 treated, 32 x 32 x 895 mm (DECAM)", "price": "£2.48 each", "url": "https://www.howarth-timber.co.uk/cheshire-mouldings-core-deck-american-spindle-uc3-treated-32-x-32-x-895mm/", "img": "", "stock": "As above", "notes": "Slimmer alternative. Needs closer spacing, about 19-20 per bay."},
-        {"tier": "Durable", "rec": true, "supplier": "Howarth Timber (Brockley)", "name": "Core Deck newel post with ball cap, UC3 treated, 1500 x 83 x 83 mm (DEP15CAP)", "price": "£24.00 each", "url": "https://www.howarth-timber.co.uk/cheshire-mouldings-core-deck-newel-post-with-cap-uc3-treated-1500-x-83-x-83mm/", "img": "", "stock": "As above", "notes": "The 1500 mm post leaves about 400 mm to bolt to the joist and still reach 1100 mm. Coat the cut end and the bolted section with end-grain preserver."},
-        {"tier": "Aesthetic", "rec": true, "supplier": "Howarth Timber (Brockley)", "name": "Richard Burbidge ball newel cap, pine, 90 mm (NC2/90P), x3", "price": "£14.38 each (£43.14 for 3)", "url": "https://www.howarth-timber.co.uk/richard-burbidge-newel-cap-ball-pine-90mm/", "img": "", "stock": "Click & collect 'Available'; ring Brockley for numbers. Delivery 3-5 days", "notes": "85 mm square base, so about 1 mm overhang on each side of an 83 mm post. Interior pine and not stated as treated: soak in preserver, then oil or paint, and fix with a dowel and exterior wood glue. Make sure the post top drains."},
-        {"tier": "Alt", "rec": false, "supplier": "Howarth Timber (Brockley)", "name": "Plain deck newel post, UC3 treated, 1250 x 83 x 83 mm (DEP12BLANK)", "price": "£14.34 each", "url": "https://www.howarth-timber.co.uk/cheshire-moulding-pine-square-uc3-treated-deck-newel-post-1250-x-83-x-83mm-dep12blank/", "img": "", "stock": "As above", "notes": "Only for the steps (900 mm guarding), or where a post is surface-fixed with a post anchor. Too short to bolt to a joist and still reach 1100 mm."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Screwfix / Toolstation", "name": "Black metal alternative: the steel handrail kit from item 11 on the house side, timber guarding only on the open edges", "price": "see item 11", "url": "", "img": "", "stock": "", "notes": "Black metal by the wall, as you preferred, with timber guarding on the open edges."}
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Howarth Timber (Brockley)",
+          "name": "Cheshire Mouldings decking rail, universal, UC3 treated, with fillet, 2395 x 68 x 44 mm (DHU24): use as both handrail and base rail",
+          "price": "£16.14 each",
+          "url": "https://www.howarth-timber.co.uk/cheshire-mouldings-decking-rail-universal-uc3-treated-fillet-2-395-x-68-x-44mm-dhu24",
+          "img": "",
+          "stock": "Click & collect shows 'Available'; branch stock not stated, so ring Brockley. Delivery 3-5 days",
+          "notes": "Treated pine. Oil it with the rest of the deck."
+        },
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Howarth Timber (Brockley)",
+          "name": "Core Deck pine square spindle, UC3 treated, 895 x 41 x 41 mm (41PBTR)",
+          "price": "£2.16 each",
+          "url": "https://www.howarth-timber.co.uk/cheshire-moulding-core-deck-pine-square-spindle-uc3-treated-895-x-41-x-41mm-41pbtr",
+          "img": "",
+          "stock": "Click & collect 'Available'; ring Brockley for numbers",
+          "notes": "The spindle that goes with the DHU24 rail. About 18 per 2.4 m bay at about 135 mm centres (no more than 95 mm clear between spindles). Ask the branch to confirm the fillet takes 41 mm spindles."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Howarth Timber (Brockley)",
+          "name": "Core Deck American spindle, UC3 treated, 32 x 32 x 895 mm (DECAM)",
+          "price": "£2.48 each",
+          "url": "https://www.howarth-timber.co.uk/cheshire-mouldings-core-deck-american-spindle-uc3-treated-32-x-32-x-895mm/",
+          "img": "",
+          "stock": "As above",
+          "notes": "Slimmer alternative. Needs closer spacing, about 19-20 per bay."
+        },
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Howarth Timber (Brockley)",
+          "name": "Core Deck newel post with ball cap, UC3 treated, 1500 x 83 x 83 mm (DEP15CAP)",
+          "price": "£24.00 each",
+          "url": "https://www.howarth-timber.co.uk/cheshire-mouldings-core-deck-newel-post-with-cap-uc3-treated-1500-x-83-x-83mm/",
+          "img": "",
+          "stock": "As above",
+          "notes": "The 1500 mm post leaves about 400 mm to bolt to the joist and still reach 1100 mm. Coat the cut end and the bolted section with end-grain preserver."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": true,
+          "supplier": "Howarth Timber (Brockley)",
+          "name": "Richard Burbidge ball newel cap, pine, 90 mm (NC2/90P), x3",
+          "price": "£14.38 each (£43.14 for 3)",
+          "url": "https://www.howarth-timber.co.uk/richard-burbidge-newel-cap-ball-pine-90mm/",
+          "img": "",
+          "stock": "Click & collect 'Available'; ring Brockley for numbers. Delivery 3-5 days",
+          "notes": "85 mm square base, so about 1 mm overhang on each side of an 83 mm post. Interior pine and not stated as treated: soak in preserver, then oil or paint, and fix with a dowel and exterior wood glue. Make sure the post top drains."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Howarth Timber (Brockley)",
+          "name": "Plain deck newel post, UC3 treated, 1250 x 83 x 83 mm (DEP12BLANK)",
+          "price": "£14.34 each",
+          "url": "https://www.howarth-timber.co.uk/cheshire-moulding-pine-square-uc3-treated-deck-newel-post-1250-x-83-x-83mm-dep12blank/",
+          "img": "",
+          "stock": "As above",
+          "notes": "Only for the steps (900 mm guarding), or where a post is surface-fixed with a post anchor. Too short to bolt to a joist and still reach 1100 mm."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Screwfix / Toolstation",
+          "name": "Black metal alternative: the steel handrail kit from item 11 on the house side, timber guarding only on the open edges",
+          "price": "see item 11",
+          "url": "",
+          "img": "",
+          "stock": "",
+          "notes": "Black metal by the wall, as you preferred, with timber guarding on the open edges."
+        }
       ]
     },
     {
-      "id": "12c", "room": "Crawl space", "title": "Rechargeable motion-sensor light bars",
+      "id": "12c",
+      "room": "Crawl space",
+      "title": "Rechargeable motion-sensor light bars",
       "need": "Battery LED bars with a PIR motion sensor and magnetic or screw mounting, recharged by USB. They are rarely used, so a charge lasts months on standby. Fit 2: one at the hatch and one further in. Screw the metal plates to a joist, so the bar lifts off to charge.",
-      "measure": "Length of the crawl space; where the hatch is.", "qty": "2",
+      "measure": "Length of the crawl space; where the hatch is.",
+      "qty": "2",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Screwfix", "name": "VEW Bar 750 mm rechargeable LED cabinet light with PIR sensor, 450 lm (375TW)", "price": "£29.99 each", "url": "https://www.screwfix.com/p/vew-bar-750mm-rechargeable-battery-powered-led-cabinet-light-with-pir-sensor-450lm/375tw", "img": "https://media.screwfix.com/is/image/ae235/375TW_P", "stock": "Check (the stock checker didn't respond today)", "notes": "Brightest in the range: lights a dark void properly. Black version 190TW. Charges by micro-USB."},
-        {"tier": "Budget", "rec": false, "supplier": "Screwfix", "name": "Calex Spot On 270 mm rechargeable LED cabinet light with PIR sensor, 120 lm (836CX)", "price": "£14.99", "url": "https://www.screwfix.com/p/calex-spot-on-series-270mm-rechargeable-battery-powered-led-cabinet-light-with-pir-sensor-120lm/836cx", "img": "https://media.screwfix.com/is/image/ae235/836CX_P", "stock": "Check", "notes": "Cheapest. Mounts with a hook, magnet or tape. Dim for a large space: fine at the hatch."},
-        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Culina Ligero 400 mm rechargeable cupboard light with PIR sensor, 160 lm (378RM)", "price": "£23.99", "url": "https://www.screwfix.com/p/culina-ligero-400mm-led-rechargeable-cupboard-light-with-pir-sensor-2w-160lm/378rm", "img": "https://media.screwfix.com/is/image/ae235/378RM_P", "stock": "Check", "notes": "Well reviewed (the 200 mm version has 13 reviews). Magnetic fixing."},
-        {"tier": "Alt", "rec": false, "supplier": "B&Q (marketplace)", "name": "Rechargeable magnetic LED strip lights with PIR sensor, 3-pack", "price": "see listing", "url": "https://www.diy.com/departments/3x-rechargeable-magnetic-led-strip-light-pir-motion-sensor-cupboard-cabinet-kitchen-unit-mini-auto-spotlight/5056199802548_BQ.prd", "img": "", "stock": "Delivery", "notes": "Multi-pack, micro-USB charging. Small bars, so lower output."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Screwfix",
+          "name": "VEW Bar 750 mm rechargeable LED cabinet light with PIR sensor, 450 lm (375TW)",
+          "price": "£29.99 each",
+          "url": "https://www.screwfix.com/p/vew-bar-750mm-rechargeable-battery-powered-led-cabinet-light-with-pir-sensor-450lm/375tw",
+          "img": "https://media.screwfix.com/is/image/ae235/375TW_P",
+          "stock": "Check (the stock checker didn't respond today)",
+          "notes": "Brightest in the range: lights a dark void properly. Black version 190TW. Charges by micro-USB."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Calex Spot On 270 mm rechargeable LED cabinet light with PIR sensor, 120 lm (836CX)",
+          "price": "£14.99",
+          "url": "https://www.screwfix.com/p/calex-spot-on-series-270mm-rechargeable-battery-powered-led-cabinet-light-with-pir-sensor-120lm/836cx",
+          "img": "https://media.screwfix.com/is/image/ae235/836CX_P",
+          "stock": "Check",
+          "notes": "Cheapest. Mounts with a hook, magnet or tape. Dim for a large space: fine at the hatch."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Culina Ligero 400 mm rechargeable cupboard light with PIR sensor, 160 lm (378RM)",
+          "price": "£23.99",
+          "url": "https://www.screwfix.com/p/culina-ligero-400mm-led-rechargeable-cupboard-light-with-pir-sensor-2w-160lm/378rm",
+          "img": "https://media.screwfix.com/is/image/ae235/378RM_P",
+          "stock": "Check",
+          "notes": "Well reviewed (the 200 mm version has 13 reviews). Magnetic fixing."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "B&Q (marketplace)",
+          "name": "Rechargeable magnetic LED strip lights with PIR sensor, 3-pack",
+          "price": "see listing",
+          "url": "https://www.diy.com/departments/3x-rechargeable-magnetic-led-strip-light-pir-motion-sensor-cupboard-cabinet-kitchen-unit-mini-auto-spotlight/5056199802548_BQ.prd",
+          "img": "",
+          "stock": "Delivery",
+          "notes": "Multi-pack, micro-USB charging. Small bars, so lower output."
+        }
       ]
     },
     {
-      "id": "13", "room": "Roof", "title": "Gutter check (optional)",
+      "id": "13",
+      "room": "Roof",
+      "title": "Gutter check (optional)",
       "need": "Look from the attic window, or use a phone on a pole. Dated photos are enough evidence. No purchase needed unless the view is blocked.",
-      "measure": "", "qty": "-", "options": []
+      "measure": "",
+      "qty": "-",
+      "options": []
     },
     {
-      "id": "14", "room": "Whole flat", "title": "Independent damp survey (optional)",
+      "id": "14",
+      "room": "Whole flat",
+      "title": "Independent damp survey (optional)",
       "need": "Use an independent surveyor (not one who sells treatments), ideally PCA (CSRT) qualified, who provides a written report. Not yet researched: next step.",
-      "measure": "", "qty": "-", "options": []
+      "measure": "",
+      "qty": "-",
+      "options": []
     },
     {
-      "id": "S1", "section": "Secondary: other kit", "room": "Personal", "title": "USB-C wall charger, 65 W (GaN)",
+      "id": "S1",
+      "section": "Secondary: other kit",
+      "room": "Personal",
+      "title": "USB-C wall charger, 65 W (GaN)",
       "need": "A small high-power USB-C charger for a laptop and phone. 65 W covers most laptops; if your laptop's own charger is 90-100 W, buy a 100 W charger instead.",
-      "measure": "Check the laptop's original charger rating (W). Use a 5 A / 100 W rated USB-C cable: a standard 3 A cable caps charging at 60 W.", "qty": "1",
+      "measure": "Check the laptop's original charger rating (W). Use a 5 A / 100 W rated USB-C cable: a standard 3 A cable caps charging at 60 W.",
+      "qty": "1",
       "options": [
-        {"tier": "Budget", "rec": true, "supplier": "Amazon", "name": "Anker Nano II 65 W GaN USB-C charger (1 port)", "price": "£16.14", "url": "https://www.amazon.co.uk/dp/B091KQ39FM", "img": "https://m.media-amazon.com/images/I/71K8Q5GdDPL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.7★ from 3,700+ ratings. Very compact, folding pins."},
-        {"tier": "Durable", "rec": false, "supplier": "Amazon", "name": "UGREEN Nexode 65 W GaN charger, 3 ports (2 × USB-C + USB-A)", "price": "£19.94", "url": "https://www.amazon.co.uk/dp/B0B7N4DX1Z", "img": "https://m.media-amazon.com/images/I/51F5eoHLXZL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.6★ from 3,900+. Charges laptop and phone together (the 65 W is shared between ports)."},
-        {"tier": "Alt", "rec": false, "supplier": "Amazon", "name": "Anker Nano 65 W GaN charger, 3 ports", "price": "£20.89", "url": "https://www.amazon.co.uk/dp/B09C87NLDN", "img": "https://m.media-amazon.com/images/I/61j86TpOyEL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.6★ from 2,300+."}
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Amazon",
+          "name": "Anker Nano II 65 W GaN USB-C charger (1 port)",
+          "price": "£16.14",
+          "url": "https://www.amazon.co.uk/dp/B091KQ39FM",
+          "img": "https://m.media-amazon.com/images/I/71K8Q5GdDPL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.7★ from 3,700+ ratings. Very compact, folding pins."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "UGREEN Nexode 65 W GaN charger, 3 ports (2 × USB-C + USB-A)",
+          "price": "£19.94",
+          "url": "https://www.amazon.co.uk/dp/B0B7N4DX1Z",
+          "img": "https://m.media-amazon.com/images/I/51F5eoHLXZL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.6★ from 3,900+. Charges laptop and phone together (the 65 W is shared between ports)."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Anker Nano 65 W GaN charger, 3 ports",
+          "price": "£20.89",
+          "url": "https://www.amazon.co.uk/dp/B09C87NLDN",
+          "img": "https://m.media-amazon.com/images/I/61j86TpOyEL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.6★ from 2,300+."
+        }
       ]
     },
     {
-      "id": "S2", "section": "Secondary: other kit", "room": "Personal", "title": "USB-C laptop power bank",
+      "id": "S2",
+      "section": "Secondary: other kit",
+      "room": "Personal",
+      "title": "USB-C laptop power bank",
       "need": "A power bank that can charge a laptop over USB-C (needs 60 W+ USB-C PD output). 25,000 mAh is about 90 Wh: a full laptop charge or more, and under the 100 Wh airline cabin limit.",
-      "measure": "", "qty": "1",
+      "measure": "",
+      "qty": "1",
       "options": [
-        {"tier": "Durable", "rec": true, "supplier": "Amazon", "name": "UGREEN Nexode 140 W 25,000 mAh power bank, 3 ports", "price": "£45.10", "url": "https://www.amazon.co.uk/dp/B0BJQ7F16T", "img": "https://m.media-amazon.com/images/I/51ijmvRyfDL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.4★ from 8,300+. 140 W from one port: enough for any USB-C laptop. Recharges fast."},
-        {"tier": "Budget", "rec": false, "supplier": "Amazon", "name": "INIU 100 W 25,000 mAh compact laptop power bank", "price": "£37.59", "url": "https://www.amazon.co.uk/dp/B0CB1BVHTK", "img": "https://m.media-amazon.com/images/I/61OE2r-Z20L._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.2★ from 4,800+. Cheapest that does 100 W."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Amazon", "name": "Anker 25,000 mAh 165 W power bank with built-in USB-C cables", "price": "£65.55", "url": "https://www.amazon.co.uk/dp/B0DCBB2YTR", "img": "https://m.media-amazon.com/images/I/61CF1s8tz1L._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.5★ from 13,500+. Built-in cables, so nothing to forget. Most expensive."}
+        {
+          "tier": "Durable",
+          "rec": true,
+          "supplier": "Amazon",
+          "name": "UGREEN Nexode 140 W 25,000 mAh power bank, 3 ports",
+          "price": "£45.10",
+          "url": "https://www.amazon.co.uk/dp/B0BJQ7F16T",
+          "img": "https://m.media-amazon.com/images/I/51ijmvRyfDL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.4★ from 8,300+. 140 W from one port: enough for any USB-C laptop. Recharges fast."
+        },
+        {
+          "tier": "Budget",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "INIU 100 W 25,000 mAh compact laptop power bank",
+          "price": "£37.59",
+          "url": "https://www.amazon.co.uk/dp/B0CB1BVHTK",
+          "img": "https://m.media-amazon.com/images/I/61OE2r-Z20L._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.2★ from 4,800+. Cheapest that does 100 W."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Anker 25,000 mAh 165 W power bank with built-in USB-C cables",
+          "price": "£65.55",
+          "url": "https://www.amazon.co.uk/dp/B0DCBB2YTR",
+          "img": "https://m.media-amazon.com/images/I/61CF1s8tz1L._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.5★ from 13,500+. Built-in cables, so nothing to forget. Most expensive."
+        }
       ]
     },
     {
-      "id": "S3", "section": "Secondary: other kit", "room": "Garden", "title": "Solar ground lights",
+      "id": "S3",
+      "section": "Secondary: other kit",
+      "room": "Garden",
+      "title": "Solar ground lights",
       "need": "Ground-level solar lights for the garden: stake lights along paths, flush disc lights in lawn or gravel, or small spotlights on plants. In UK winter solar lights only run for a few hours (they come into their own from spring); put the panels where they get the most sun.",
-      "measure": "Number of lights; path length; which spots get sun.", "qty": "TBC",
+      "measure": "Number of lights; path length; which spots get sun.",
+      "qty": "TBC",
       "options": [
-        {"tier": "Budget", "rec": true, "supplier": "Amazon", "name": "GIGALUMI solar stake lights, stainless, 12-pack", "price": "£16.14", "url": "https://www.amazon.co.uk/dp/B074PPWTPD", "img": "https://m.media-amazon.com/images/I/71NlXy99cmL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.2★ from 35,000+ ratings. Path marker lights: soft, not bright."},
-        {"tier": "Durable", "rec": false, "supplier": "Amazon", "name": "Solar disc ground lights, 8 LED, 600 mAh battery", "price": "£13.99", "url": "https://www.amazon.co.uk/dp/B08YDG2P9D", "img": "https://m.media-amazon.com/images/I/71sPaC4VLgL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.6★ from 2,500+. Sit flush in lawn or gravel, so you can mow over them. Check the pack size on the listing."},
-        {"tier": "Aesthetic", "rec": false, "supplier": "Amazon", "name": "Ollny solar spotlight uplighters, stake-mounted, 2-pack", "price": "£15.33", "url": "https://www.amazon.co.uk/dp/B0G2LW595L", "img": "https://m.media-amazon.com/images/I/81PBQMLFslL._AC_SL400_.jpg", "stock": "Delivery", "notes": "4.6★ (56 ratings). Light up a tree or shrub rather than a path."},
-        {"tier": "Alt", "rec": false, "supplier": "Screwfix", "name": "Essentials solar spike light, black, 15 lm (402EN)", "price": "£5.99", "url": "https://www.screwfix.com/search?search=402EN", "img": "https://media.screwfix.com/is/image/ae235/402EN_P", "stock": "Check", "notes": "Buy singly and collect locally. Dim (15 lm)."}
+        {
+          "tier": "Budget",
+          "rec": true,
+          "supplier": "Amazon",
+          "name": "GIGALUMI solar stake lights, stainless, 12-pack",
+          "price": "£16.14",
+          "url": "https://www.amazon.co.uk/dp/B074PPWTPD",
+          "img": "https://m.media-amazon.com/images/I/71NlXy99cmL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.2★ from 35,000+ ratings. Path marker lights: soft, not bright."
+        },
+        {
+          "tier": "Durable",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Solar disc ground lights, 8 LED, 600 mAh battery",
+          "price": "£13.99",
+          "url": "https://www.amazon.co.uk/dp/B08YDG2P9D",
+          "img": "https://m.media-amazon.com/images/I/71sPaC4VLgL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.6★ from 2,500+. Sit flush in lawn or gravel, so you can mow over them. Check the pack size on the listing."
+        },
+        {
+          "tier": "Aesthetic",
+          "rec": false,
+          "supplier": "Amazon",
+          "name": "Ollny solar spotlight uplighters, stake-mounted, 2-pack",
+          "price": "£15.33",
+          "url": "https://www.amazon.co.uk/dp/B0G2LW595L",
+          "img": "https://m.media-amazon.com/images/I/81PBQMLFslL._AC_SL400_.jpg",
+          "stock": "Delivery",
+          "notes": "4.6★ (56 ratings). Light up a tree or shrub rather than a path."
+        },
+        {
+          "tier": "Alt",
+          "rec": false,
+          "supplier": "Screwfix",
+          "name": "Essentials solar spike light, black, 15 lm (402EN)",
+          "price": "£5.99",
+          "url": "https://www.screwfix.com/search?search=402EN",
+          "img": "https://media.screwfix.com/is/image/ae235/402EN_P",
+          "stock": "Check",
+          "notes": "Buy singly and collect locally. Dim (15 lm)."
+        }
       ]
     }
   ]
-}
-</script>
+}</script>
 <script>
 (function(){
   var root=document.documentElement;
@@ -338,6 +1223,17 @@ footer{color:var(--muted);font-size:12px;margin-top:30px}
   [D.meta.price_note,D.meta.stock_note,'Updated '+D.meta.updated].forEach(function(t){n.appendChild(el('span','pill',t));});
   var toc=document.getElementById('toc'), items=document.getElementById('items');
   var rb=document.querySelector('#recs tbody'), mb=document.querySelector('#measure tbody');
+  var P=(D.meta.plan&&D.meta.plan.rows)||[], pri={};
+  if(P.length){
+    document.getElementById('planwrap').hidden=false;
+    document.getElementById('plantitle').textContent=D.meta.plan.title;
+    document.getElementById('plannote').textContent=D.meta.plan.note||'';
+    var pb=document.querySelector('#plan tbody');
+    P.forEach(function(r){ (pri[r.id]=pri[r.id]||[]).push(r.p+' '+r.task);
+      var tr=document.createElement('tr'); tr.appendChild(el('td','total',String(r.p)));
+      [r.task,r.pick,r.price].forEach(function(v){tr.appendChild(el('td',null,v));});
+      var td=el('td'); var a=el('a',null,'#'+r.id); a.href='#i'+r.id; td.appendChild(a); tr.appendChild(td); pb.appendChild(tr);});
+  }
   var lastSec=null;
   D.items.forEach(function(it){
     var sec=it.section||'Flat repairs';
@@ -345,6 +1241,7 @@ footer{color:var(--muted);font-size:12px;margin-top:30px}
     var a=el('a',null,it.id+'. '+it.title); a.href='#i'+it.id; toc.appendChild(a);
     var s=el('section','item'); s.id='i'+it.id;
     s.appendChild(el('div','room',it.room));
+    if(pri[it.id]) s.appendChild(el('span','badge recb','Tuesday: priority '+pri[it.id].join(', ')));
     s.appendChild(el('h2',null,it.id+'. '+it.title));
     s.appendChild(el('p','need',it.need));
     if(it.measure){ s.appendChild(el('p','measure','Measure: '+it.measure));
